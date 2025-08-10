@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISA BOT Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d3748; /* dark-gray-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568; /* dark-gray-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096; /* dark-gray-500 */
+        }
+        /* Basic styling for message bubbles */
+        .user-message {
+            background-color: #4A5568; /* Tailwind gray-700 */
+            color: white;
+            align-self: flex-end;
+            border-radius: 1rem 1rem 0.25rem 1rem; /* Rounded top-left, top-right, bottom-left */
+        }
+        .bot-message {
+            background-color: #2D3748; /* Tailwind gray-800 */
+            color: white;
+            align-self: flex-start;
+            border-radius: 1rem 1rem 1rem 0.25rem; /* Rounded top-left, top-right, bottom-right */
+        }
+        .source-doc {
+            border-left: 3px solid #63B3ED; /* Tailwind blue-400 */
+            font-size: 0.8rem;
+        }
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter font as per guidelines */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-2xl bg-gray-800 shadow-2xl rounded-lg flex flex-col" style="height: 85vh;">
+        <!-- Header -->
+        <header class="bg-gray-700 p-4 rounded-t-lg">
+            <h1 class="text-2xl font-bold text-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 inline-block mr-2 align-text-bottom">
+                    <path d="M14.25 2.25A4.496 4.496 0 0012 1.5a4.496 4.496 0 00-2.25.75M12 6V3.75M5.038 12.75C5.14 15.974 7.772 18.75 11.25 18.75h1.5c3.478 0 6.11-2.776 6.212-6M12 6V3.75m0 17.25V15M3 9.75l1.61.067a5.25 5.25 0 015.14 5.142V15.75M21 9.75l-1.61.067a5.25 5.25 0 00-5.14 5.142V15.75m-3.89 3.469l-1.21-.067a1.5 1.5 0 01-1.4-1.4V15.75m7.78 3.469l1.21-.067a1.5 1.5 0 001.4-1.4V15.75M12 6a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"></path>
+                </svg>
+                LISA BOT
+            </h1>
+        </header>
+
+        <!-- Chat Messages Area -->
+        <div id="chat-messages" class="flex-grow p-6 space-y-4 overflow-y-auto">
+            <!-- Messages will be appended here -->
+            <div class="bot-message p-3 max-w-lg">
+                <p class="font-semibold">LISA BOT:</p>
+                <p>Hello! Ask me anything about the LISA project</p>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-indicator" class="p-4 text-center text-gray-400 hidden">
+            <p>LISA BOT is thinking...</p>
+        </div>
+
+        <!-- Input Area -->
+        <footer class="bg-gray-700 p-4 rounded-b-lg">
+            <form id="chat-form" class="flex items-center space-x-3">
+                <input type="text" id="message-input" placeholder="Ask LISA BOT something..."
+                       class="flex-grow p-3 border border-gray-600 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                       autocomplete="off">
+                <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Send
+                </button>
+            </form>
+        </footer>
+    </div>
+
+    <script>
+        const chatForm = document.getElementById('chat-form');
+        const messageInput = document.getElementById('message-input');
+        const chatMessages = document.getElementById('chat-messages');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        
+        // API URL for your RAG server
+        const apiUrl = '/query';
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userQuery = messageInput.value.trim();
+            if (!userQuery) return;
+
+            addMessageToChat(userQuery, 'user');
+            messageInput.value = ''; // Clear input
+            showLoading(true);
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: userQuery }),
+                });
+
+                showLoading(false);
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ detail: "Unknown error occurred." }));
+                    const errorMessage = `Error: ${response.status} ${response.statusText}. ${errorData.detail || ''}`;
+                    addMessageToChat(errorMessage, 'bot-error');
+                    console.error('API Error:', errorData);
+                    return;
+                }
+
+                const data = await response.json();
+                addMessageToChat(data.answer, 'bot', data.source_documents);
+
+            } catch (error) {
+                showLoading(false);
+                addMessageToChat('Failed to connect to LISA BOT. Please ensure the server is running.', 'bot-error');
+                console.error('Network or other error:', error);
+            }
+        });
+
+        function addMessageToChat(text, sender, sourceDocuments = []) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('p-3', 'max-w-lg', 'rounded-lg', 'shadow');
+            
+            const senderName = document.createElement('p');
+            senderName.classList.add('font-semibold', 'mb-1');
+
+            if (sender === 'user') {
+                messageDiv.classList.add('user-message', 'ml-auto'); // Align user messages to the right
+                senderName.textContent = 'You:';
+            } else if (sender === 'bot') {
+                messageDiv.classList.add('bot-message', 'mr-auto'); // Align bot messages to the left
+                senderName.textContent = 'LISA BOT:';
+            } else if (sender === 'bot-error') {
+                messageDiv.classList.add('bg-red-700', 'text-white', 'mr-auto');
+                senderName.textContent = 'LISA BOT Error:';
+            }
+            
+            messageDiv.appendChild(senderName);
+
+            const messageText = document.createElement('p');
+            messageText.textContent = text;
+            messageDiv.appendChild(messageText);
+
+            // Display source documents if any
+            if (sourceDocuments && sourceDocuments.length > 0) {
+                const sourcesContainer = document.createElement('div');
+                sourcesContainer.classList.add('mt-3', 'pt-2', 'border-t', 'border-gray-600');
+                
+                const sourcesTitle = document.createElement('p');
+                sourcesTitle.classList.add('text-xs', 'font-semibold', 'mb-1', 'text-gray-400');
+                sourcesTitle.textContent = 'Sources:';
+                sourcesContainer.appendChild(sourcesTitle);
+
+                sourceDocuments.forEach(doc => {
+                    const docDiv = document.createElement('div');
+                    docDiv.classList.add('source-doc', 'p-2', 'my-1', 'bg-gray-700', 'rounded');
+                    
+                    let sourceInfo = `File: ${doc.source_file || 'Unknown'}`;
+                    if (doc.page) sourceInfo += `, Page: ${doc.page}`;
+                    if (doc.section && doc.section !== "N/A") sourceInfo += `, Section: ${doc.section}`;
+                    
+                    const sourceMeta = document.createElement('p');
+                    sourceMeta.classList.add('text-xs', 'italic', 'text-gray-300');
+                    sourceMeta.textContent = sourceInfo;
+                    docDiv.appendChild(sourceMeta);
+
+                    const sourcePreview = document.createElement('p');
+                    sourcePreview.classList.add('text-xs', 'text-gray-200', 'mt-1');
+                    sourcePreview.textContent = doc.content_preview || 'No preview available.';
+                    docDiv.appendChild(sourcePreview);
+                    
+                    sourcesContainer.appendChild(docDiv);
+                });
+                messageDiv.appendChild(sourcesContainer);
+            }
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the latest message
+        }
+
+        function showLoading(isLoading) {
+            if (isLoading) {
+                loadingIndicator.classList.remove('hidden');
+            } else {
+                loadingIndicator.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
