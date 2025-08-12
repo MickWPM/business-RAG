@@ -1,0 +1,53 @@
+[
+  {
+    "question_id": "SS-AUDIT-PLAN-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "According to the Audit Implementation Plan, which role is responsible for the central coordination of all external audits?",
+    "ground_truth_answer": "The Head of Operations is responsible for the central coordination of all external audits.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AUDIT-PLAN-001",
+        "source_quote": "The Head of Operations is responsible for the central coordination of all external audits."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AUDIT-PLAN-001-002",
+    "question_type": "SYNTHESIS",
+    "question_text": "Based on the Audit Implementation Plan, what are the three classifications for audit findings and which ones require a Non-Conformance Report (NCR) to be raised?",
+    "ground_truth_answer": "The three classifications for audit findings are Major Non-conformance, Minor Non-conformance, and Opportunity for Improvement (OFI). Both Major and Minor Non-conformances require a Non-Conformance Report (NCR) to be formally documented and raised.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AUDIT-PLAN-001",
+        "source_quote": "Audit findings will be classified into one of three categories: Major Non-conformance, Minor Non-conformance, Opportunity for Improvement (OFI)."
+      },
+      {
+        "doc_id": "SS-AUDIT-PLAN-001",
+        "source_quote": "All Major and Minor Non-conformances identified during an audit must be formally documented and raised on a Non-Conformance Report (NCR)."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AUDIT-PLAN-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "When a non-conformance is found during an audit, the Audit Implementation Plan requires an NCR to be raised in accordance with another document. What is the ID of that document, and what is its purpose?",
+    "ground_truth_answer": "The document is SS-QM-PLAN-001, the Quality Management Plan. Its purpose, as stated in that document, is to define the company's quality policies, objectives, and the framework for ensuring all products and services meet stringent customer and regulatory requirements.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AUDIT-PLAN-001",
+        "source_quote": "The initiation, review, and disposition of the NCR shall be conducted in strict accordance with the Non-Conformance Reporting (NCR) process defined in Section 6.2 of SS-QM-PLAN-001: Quality Management Plan."
+      },
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "This Quality Management Plan (QMP) defines the company's quality policies, objectives, and the framework for ensuring all products and services meet stringent customer and regulatory requirements."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AUDIT-PLAN-001-004",
+    "question_type": "UNANSWERABLE",
+    "question_text": "Who is the designated Lead Auditor for the Q3 Operations & Manufacturing internal audit?",
+    "ground_truth_answer": "The Audit Implementation Plan does not specify the names of individuals assigned as Lead Auditors for specific audits. It only states that a Lead Auditor will be a 'designated and suitably trained employee' who is independent of the area being audited.",
+    "retrieval_path": []
+  }
+]

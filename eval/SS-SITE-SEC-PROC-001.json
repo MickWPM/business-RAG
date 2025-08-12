@@ -1,0 +1,49 @@
+[
+  {
+    "question_id": "SS-SITE-SEC-PROC-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "According to the Site Security Procedure, what is the process for parking a company vehicle at the facility?",
+    "ground_truth_answer": "Company vehicles must be parked in the designated fleet parking area, and their keys must be logged and stored in the secure key press at reception when not in use.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SITE-SEC-PROC-001",
+        "source_quote": "Company vehicles must be parked in the designated fleet parking area. The keys for all company vehicles must be logged and stored in the secure key press located at reception when not in use."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-SITE-SEC-PROC-001-002",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "What are the five key checks that must be completed as part of the end-of-day lock-up checklist in SS-SITE-SEC-PROC-001?",
+    "ground_truth_answer": "The five key checks on the end-of-day lock-up checklist are: 1. Confirm all external windows and doors are locked. 2. Verify all secure containers are locked. 3. Ensure desks are clear of sensitive information per the Clear Desk Policy. 4. Power down non-essential equipment. 5. Arm the building's security alarm system.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SITE-SEC-PROC-001",
+        "source_quote": "Windows and Doors: Confirm all external windows and doors are closed and securely locked.\nSecure Containers: Verify that all safes, security containers, and classified document cabinets are locked.\nClear Desk Policy: Ensure all desks are clear of sensitive or classified information. Any unsecured sensitive materials must be secured in an appropriate container.\nEquipment: Power down all non-essential electronic equipment.\nAlarm System: Arm the building's security alarm system."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-SITE-SEC-PROC-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "If the Head of Operations determines a physical security incident is significant, to which governance body, established in SS-SEC-POL-001, must they report it?",
+    "ground_truth_answer": "If a physical security incident is deemed significant, the Head of Operations must report it to the Defence Security Committee (DSC). The DSC is established in SS-SEC-POL-001 as the primary governance body for security matters.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SITE-SEC-PROC-001",
+        "source_quote": "The Head of Operations is responsible for conducting an initial assessment of the incident and, if deemed necessary, formally reporting the incident to the Defence Security Committee (DSC). As established in SS-SEC-POL-001, the DSC is the primary governance body for security matters and will direct the formal investigation and response to all significant security incidents."
+      },
+      {
+        "doc_id": "SS-SEC-POL-001",
+        "source_quote": "The Defence Security Committee (DSC) is hereby formally established as the primary governance body for security matters within Synthetic Systems."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-SITE-SEC-PROC-001-004",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What are the specific operating hours for the receiving area for scheduled deliveries?",
+    "ground_truth_answer": "The Site Security Procedure (SS-SITE-SEC-PROC-001) does not specify the operating hours for the receiving area. It only states that all delivery vehicles must report to the designated receiving area and that unscheduled deliveries will be refused.",
+    "retrieval_path": []
+  }
+]

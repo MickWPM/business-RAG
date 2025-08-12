@@ -1,0 +1,65 @@
+[
+  {
+    "question_id": "SS-SEC-PROC-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What type of secure container is required for the storage of PROTECTED documents?",
+    "ground_truth_answer": "PROTECTED documents must be stored in a Class C secure container approved by the Security Construction and Equipment Committee (SCEC).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SEC-PROC-001",
+        "source_quote": "PROTECTED: Must be stored in a Class C secure container approved by the Security Construction and Equipment Committee (SCEC)."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-SEC-PROC-001-002",
+    "question_type": "SYNTHESIS",
+    "question_text": "Describe the full process for handling a SECRET document, from marking it to its eventual destruction.",
+    "ground_truth_answer": "A SECRET document must be marked 'SECRET' in uppercase bold text at the top and bottom of every page, with pages numbered. It must be enclosed in a red 'SECRET' cover sheet when not secured. All SECRET documents are recorded in a central register. For storage, it must be kept in a SCEC-approved Class B (or higher) secure container. For destruction, it must be shredded using a SCEC-approved Class A or B shredder, with the destruction witnessed by a second cleared person and logged in the register.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SEC-PROC-001",
+        "source_quote": "Marking: SECRET"
+      },
+      {
+        "doc_id": "SS-SEC-PROC-001",
+        "source_quote": "Cover Sheet: A red SECRET cover sheet must be used for physical documents when not in a secure container."
+      },
+      {
+        "doc_id": "SS-SEC-PROC-001",
+        "source_quote": "Register: All SECRET documents must be recorded in the company's central SECRET Document Register, managed by the Company Security Officer."
+      },
+      {
+        "doc_id": "SS-SEC-PROC-001",
+        "source_quote": "SECRET: Must be stored in a Class B secure container (or higher) approved by SCEC."
+      },
+      {
+        "doc_id": "SS-SEC-PROC-001",
+        "source_quote": "PROTECTED/SECRET: Must be destroyed using a SCEC-approved Class A or Class B shredder. The destruction of SECRET material must be witnessed by a second cleared person and recorded in the SECRET Document Register."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-SEC-PROC-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "Which specific governance body, identified in the parent security policy, mandates the prohibition of transmitting classified information over unapproved networks?",
+    "ground_truth_answer": "The Defence Security Committee (DSC), which is established in SS-SEC-POL-001, mandates the prohibition of transmitting classified information over unapproved networks, as stated in SS-SEC-PROC-001.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SEC-PROC-001",
+        "source_quote": "As mandated by the Defence Security Committee (DSC) in SS-SEC-POL-001, classified information must only be stored and processed on networks accredited for that classification level."
+      },
+      {
+        "doc_id": "SS-SEC-POL-001",
+        "source_quote": "The Defence Security Committee (DSC) is hereby formally established as the primary governance body for security matters within Synthetic Systems."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-SEC-PROC-001-004",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the specific model number of the Class A shredder that must be used for destroying SECRET documents?",
+    "ground_truth_answer": "I am sorry, but the provided documents do not contain information about specific model numbers for approved shredders. The 'Classified Document Handling Procedure' (SS-SEC-PROC-001) only states that a SCEC-approved Class A or Class B shredder must be used for destroying PROTECTED and SECRET material.",
+    "retrieval_path": []
+  }
+]

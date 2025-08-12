@@ -1,0 +1,308 @@
+[
+  {
+    "question_id": "SS-CORP-PLAN-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the official mission statement of Synthetic Systems for the 2025-2028 period?",
+    "ground_truth_answer": "The mission of Synthetic Systems is to be Australia's leading SME provider of sovereign naval communication systems, delivering a decisive information advantage through superior Australian-designed and manufactured technology.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Mission Statement: To be Australia's leading SME provider of sovereign naval communication systems, delivering a decisive information advantage through superior Australian-designed and manufactured technology."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-CORP-PLAN-001-002",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "List the core products offered by Synthetic Systems.",
+    "ground_truth_answer": "Synthetic Systems' core products are the Hydra-C4 Comms Module, the Trident-S Antenna Array, and the Aegis-Link Control Software.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Our Core Products\n\nOur product suite is an integrated ecosystem designed to provide seamless and secure maritime communications. Each component is engineered for interoperability, environmental resilience, and superior performance.\n\n- Hydra-C4 Comms Module: The heart of our system, the Hydra-C4 is a state-of-the-art, rack-mounted hardware processing unit.\n- Trident-S Antenna Array: A specialised, environmentally-hardened naval antenna system designed to withstand the harshest maritime conditions.\n- Aegis-Link Control Software: The intuitive software interface for monitoring and controlling the entire communications suite."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-CORP-PLAN-001-003",
+    "question_type": "SYNTHESIS",
+    "question_text": "How does the company's strategic goal regarding personnel growth connect to its product line?",
+    "ground_truth_answer": "The strategic goal to grow the software engineering team by 30% is directly connected to the company's Aegis-Link Control Software product. This growth is intended to accelerate the development, enhance the features, and support this specific product.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Goal 3: Expanding Our Software Capability\nWe will grow our software engineering team by 30% to accelerate the development and support of our Aegis-Link product line."
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Aegis-Link Control Software: The intuitive software interface for monitoring and controlling the entire communications suite."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-CORP-PLAN-001-004",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the annual budget allocated for achieving ISO 27001 certification?",
+    "ground_truth_answer": "The document does not specify the annual budget allocated for achieving ISO 27001 certification.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": ""
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HR-HNDBK-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "How many weeks of paid annual leave are full-time employees entitled to per year at Synthetic Systems?",
+    "ground_truth_answer": "Full-time employees at Synthetic Systems are entitled to four (4) weeks of paid annual leave per year.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "Full-time employees are entitled to four (4) weeks (20 days) of paid annual leave per year, accrued progressively."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HR-HNDBK-001-002",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "According to the Employee Handbook, why are the company's IT policies so strict?",
+    "ground_truth_answer": "The company's IT policies are strict because Synthetic Systems has a strategic goal to achieve ISO 27001 certification for information security management, as stated in the Corporate Plan (SS-CORP-PLAN-001). This is to demonstrate its commitment to protecting sensitive defence information and intellectual property.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "Our Corporate Plan (SS-CORP-PLAN-001) explicitly states our strategic goal to \"Achieve ISO 27001 certification for information security management.\""
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Goal 2: Information Security Excellence: Achieve ISO 27001 certification for information security management, demonstrating our commitment to protecting sensitive defence information and intellectual property."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HR-HNDBK-001-003",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the company's policy on paid parental leave?",
+    "ground_truth_answer": "I'm sorry, but the provided documents do not contain information about the company's policy on paid parental leave.",
+    "retrieval_path": []
+  },
+  {
+    "question_id": "SS-HR-HNDBK-001-004",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "What are the three core products of Synthetic Systems?",
+    "ground_truth_answer": "The three core products of Synthetic Systems are the Hydra-C4 Comms Module, the Trident-S Antenna Array, and the Aegis-Link Control Software.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Hydra-C4 Comms Module: A rugged, line-replaceable hardware module that handles encryption, signal processing, and network management."
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Trident-S Antenna Array: A specialised, steerable antenna system designed to work with the Hydra-C4 module, built to withstand harsh naval environments."
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Aegis-Link Control Software: A software application that runs on a ruggedised console, allowing operators to configure, monitor, and diagnose the entire communication suite."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HR-HNDBK-001-005",
+    "question_type": "SYNTHESIS",
+    "question_text": "Based on the Code of Conduct, what are the key expectations for an employee regarding information security?",
+    "ground_truth_answer": "Based on the Code of Conduct, an employee is expected to handle all company, client, and Commonwealth information with the strictest confidence, comply with all security policies without exception, and immediately report any security concerns or breaches. This is rooted in the company's mission to be a trusted provider of sovereign naval communication systems.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "This mission demands an unwavering commitment to security and integrity from every employee."
+      },
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "Handle all company, client, and Commonwealth information with the strictest confidence."
+      },
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "Comply with all security policies and procedures without exception."
+      },
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "Report any security concerns or breaches immediately to your manager or the Head of Corporate Services."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HR-HNDBK-001-006",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the standard probationary period for new permanent employees?",
+    "ground_truth_answer": "The standard probationary period for new permanent employees at Synthetic Systems is six (6) months.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "All new permanent employees undertake a six (6) month probationary period."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HR-HNDBK-001-007",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "How does the Code of Conduct's emphasis on integrity relate to the company's overall mission?",
+    "ground_truth_answer": "The Code of Conduct's emphasis on integrity directly supports the company's mission to be a 'trusted, high-performance' provider of sovereign naval communication systems. The handbook explicitly states that the company's position as a trusted defence provider is its most valuable asset, linking employee integrity directly to the mission's success.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "Our position as a trusted defence provider is our most valuable asset. As outlined in our mission statement (SS-CORP-PLAN-001), our goal is \"To be Australia's leading SME provider of sovereign naval communication systems, delivering trusted, high-performance solutions that enhance national security and capability.\""
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "To be Australia's leading SME provider of sovereign naval communication systems, delivering trusted, high-performance solutions that enhance national security and capability."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HR-HNDBK-001-008",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "List three activities that are strictly prohibited on company IT resources.",
+    "ground_truth_answer": "Three activities strictly prohibited on company IT resources are: installing unauthorised software, using unauthorised external storage devices (like personal USB drives), and sharing your login credentials with any other person.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "Installing unauthorised software."
+      },
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "Using unauthorised external storage devices (e.g., personal USB drives)."
+      },
+      {
+        "doc_id": "SS-HR-HNDBK-001",
+        "source_quote": "Sharing your login credentials with any other person."
+      }
+    ]
+  },{
+    "question_id": "SS-QM-PLAN-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "According to the Quality Management Plan, what is the minimum frequency for conducting a full cycle of internal audits?",
+    "ground_truth_answer": "A full cycle of internal audits covering all aspects of the Quality Management System (QMS) is required to be conducted annually.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "A full cycle of internal audits covering all aspects of the QMS shall be conducted annually."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-QM-PLAN-001-002",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "How does the Corrective and Preventive Actions (CAPA) process support the company's mission to deliver a 'decisive information advantage'?",
+    "ground_truth_answer": "The Corrective and Preventive Actions (CAPA) process supports the company's mission by systematically investigating and eliminating the root causes of product or process failures. By preventing the recurrence of non-conformances, the CAPA process ensures that the company's technology remains reliable and high-performing, which is essential for delivering a 'decisive information advantage' as stated in the corporate mission.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "The Corrective and Preventive Action (CAPA) process is the primary mechanism for systematic problem-solving and continual improvement. Its purpose is to investigate and eliminate the root causes of non-conformances and to prevent their recurrence."
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Mission Statement: To be Australia's leading SME provider of sovereign naval communication systems, delivering a decisive information advantage through superior Australian-designed and manufactured technology."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-QM-PLAN-001-003",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the target Mean Time Between Failures (MTBF) for the Hydra-C4 Comms Module?",
+    "ground_truth_answer": "The provided documents do not specify a target Mean Time Between Failures (MTBF) for the Hydra-C4 Comms Module or any other product.",
+    "retrieval_path": []
+  },
+  {
+    "question_id": "SS-QM-PLAN-001-004",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What international standard is Synthetic Systems' Quality Management System committed to maintaining compliance with?",
+    "ground_truth_answer": "Synthetic Systems is committed to maintaining compliance with the ISO 9001:2015 quality management standard.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "Synthetic Systems is committed to maintaining compliance with the ISO 9001:2015 quality management standard."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-QM-PLAN-001-005",
+    "question_type": "SYNTHESIS",
+    "question_text": "Describe the full process at Synthetic Systems, from the moment a product fails to meet a requirement to the final verification that the root cause has been fixed.",
+    "ground_truth_answer": "When a product fails to meet a requirement, any employee can raise a Non-Conformance Report (NCR) to document the issue. The NCR is reviewed by the Head of Operations to determine its severity. If the issue is significant, it triggers the Corrective and Preventive Action (CAPA) process. A team then investigates to find the root cause, develops and implements an action plan to fix it, and finally verifies over a period of time that the implemented actions were effective in eliminating the root cause before the CAPA is formally closed.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "The purpose of the Non-Conformance Reporting (NCR) process is to formally document, track, and resolve any instance where a product, process, or service fails to meet its specified requirements."
+      },
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "Any employee can raise an NCR upon identifying a non-conformance."
+      },
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "Significant or recurring non-conformances will be escalated to the CAPA process."
+      },
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "A cross-functional team is assigned to investigate the issue and perform a root cause analysis (RCA)."
+      },
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "The effectiveness of the implemented actions is verified over a defined period to ensure the root cause has been successfully eliminated."
+      }
+    ]
+  },{
+    "question_id": "SS-SEC-POL-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "Who is responsible for the operational implementation of the Defence Security Policy?",
+    "ground_truth_answer": "The Head of Operations is responsible for the operational implementation of the Defence Security Policy, in their role as the Chair of the Defence Security Committee (DSC).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SEC-POL-001",
+        "source_quote": "As Chair of the DSC, the Head of Operations is responsible for the operational implementation of this policy and its supporting frameworks."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-SEC-POL-001-002",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "How does the principle of enforcing 'Need-to-Know' in the Defence Security Policy support the company's mission as stated in the Corporate Plan?",
+    "ground_truth_answer": "The Defence Security Policy enforces the 'Need-to-Know' principle to secure information based on its classification and business criticality. This directly supports the company's mission, as stated in the Corporate Plan, which is 'To be Australia's leading SME provider of sovereign naval communication systems, delivering a decisive information advantage through superior Australian-designed and manufactured technology.' Protecting information ensures that the decisive advantage provided by the technology is not compromised.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SEC-POL-001",
+        "source_quote": "Information is secured based on its classification and business criticality. We will apply robust controls to protect the confidentiality, integrity, and availability of all information, with specific measures applied to sensitive and classified data in accordance with government and contractual requirements. The \"Need-to-Know\" principle will be strictly enforced."
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "To be Australia's leading SME provider of sovereign naval communication systems, delivering a decisive information advantage through superior Australian-designed and manufactured technology."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-SEC-POL-001-003",
+    "question_type": "UNANSWERABLE",
+    "question_text": "Who are the specific individuals, besides the Head of Operations, that are members of the Defence Security Committee?",
+    "ground_truth_answer": "The provided documents do not name the specific individuals who are members of the Defence Security Committee. The policy only states that core members will include representatives from Information Technology, Human Resources, and Engineering.",
+    "retrieval_path": []
+  },
+  {
+    "question_id": "SS-SEC-POL-001-004",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the specific budget that has been allocated for achieving ISO 27001 certification?",
+    "ground_truth_answer": "The provided documents do not contain information about the specific budget allocated for the ISO 27001 certification initiative.",
+    "retrieval_path": []
+  },
+  {
+    "question_id": "SS-SEC-POL-001-005",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "According to the Defence Security Policy, how often is the policy reviewed?",
+    "ground_truth_answer": "The Defence Security Committee (DSC) will review the Defence Security Policy biennially (every two years), or more frequently if there are significant changes to the company's risk environment, strategy, or government security requirements.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SEC-POL-001",
+        "source_quote": "The Defence Security Committee (DSC) will review this policy biennially, or in response to significant changes in the company's risk environment, strategic direction, or relevant government security requirements."
+      }
+    ]
+  }
+]

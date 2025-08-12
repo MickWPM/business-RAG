@@ -1,0 +1,133 @@
+[
+  {
+    "question_id": "SS-CM-PLAN-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "Who is responsible for administering the Configuration Management process and facilitating CCB meetings?",
+    "ground_truth_answer": "The CM Manager is responsible for administering the CM process, managing the CM tools and repository, facilitating CCB meetings, and maintaining the records of all configuration activities.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "CM Manager: Responsible for administering the CM process, managing the CM tools and repository, facilitating CCB meetings, and maintaining the records of all configuration activities."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-CM-PLAN-001-002",
+    "question_type": "SYNTHESIS",
+    "question_text": "Describe the process for changing a baselined Configuration Item, from initiation to closure.",
+    "ground_truth_answer": "To change a baselined CI, a Problem/Change Request (PCR) must be initiated by an employee. The PCR is then assigned to an Engineering Lead for an impact assessment. Following the assessment, the Configuration Control Board (CCB) reviews the PCR and will either approve, reject, defer, or request more information. If approved, the change is implemented and verified. Once verified, the CM Manager formally closes the PCR.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "The PCR is the sole mechanism for requesting a change to a baselined CI."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "Initiation: Any employee can initiate a PCR using the company's designated form."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "Impact Assessment: The PCR is assigned to the relevant Engineering Lead(s) for a formal impact assessment."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "CCB Review: The completed PCR, including the impact assessment, is submitted to the Configuration Control Board (CCB) for review."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "Implementation and Verification: For approved PCRs, the responsible Engineering Lead develops an implementation plan. Once the change is implemented, it is rigorously tested to verify that it has solved the original problem and has not introduced any unintended side effects."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "Closure: Once the change has been successfully implemented and verified, the CM Manager formally closes the PCR in the tracking system."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-CM-PLAN-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "According to the Configuration Management Plan, where is the overall governance for engineering activities and the authority for the CCB established?",
+    "ground_truth_answer": "The overall governance for engineering activities, including Configuration Management, is established in the SS-ENG-PLAN-001: Engineering Management Plan. This parent document also establishes the Configuration Control Board (CCB) as the primary authority for managing changes.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "The overall governance for engineering activities, including Configuration Management, is established in the SS-ENG-PLAN-001: Engineering Management Plan."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "As established in SS-ENG-PLAN-001, the CCB is responsible for providing a disciplined and consistent approach to change management."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-CM-PLAN-001-004",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the budget allocated for the procurement of new CM tools in the 2026 financial year?",
+    "ground_truth_answer": "I am sorry, but the provided documents, including the Configuration Management Plan, do not contain information about specific budgets or financial allocations for CM tools for any financial year. The plan outlines roles and processes, but not financial details.",
+    "retrieval_path": []
+  },
+  {
+    "question_id": "SS-CM-PLAN-001-005",
+    "question_type": "SYNTHESIS",
+    "question_text": "What are the three main types of configuration baselines used at Synthetic Systems and when are they typically established?",
+    "ground_truth_answer": "The three main types of configuration baselines are the Functional Baseline, the Allocated Baseline, and the Product Baseline. The Functional Baseline is established after the System Requirements Review. The Allocated Baseline is established after the Preliminary Design Review. The Product Baseline is established at the conclusion of a successful Physical Configuration Audit.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "Synthetic Systems utilises three main types of baselines: 1. Functional Baseline... 2. Allocated Baseline... 3. Product Baseline..."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "Functional Baseline: Established early in the development lifecycle, typically after the System Requirements Review (SRR)."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "Allocated Baseline: Established after the Preliminary Design Review (PDR)."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "Product Baseline: Established at the conclusion of a successful Physical Configuration Audit (PCA), prior to formal delivery."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-CM-PLAN-001-006",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the purpose of a Physical Configuration Audit (PCA)?",
+    "ground_truth_answer": "A Physical Configuration Audit (PCA) is a formal audit to verify that the as-built product accurately reflects the design and manufacturing documentation that comprises the product baseline. A successful PCA is required before a product can be formally accepted and delivered.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "A PCA is a formal audit to verify that the as-built product accurately reflects the design and manufacturing documentation that comprises the product baseline."
+      }
+    ]
+  },
+    {
+    "question_id": "SS-CM-PLAN-001-007",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "Who chairs the Defence Security Committee (DSC) and what corporate goal does that committee oversee the implementation of?",
+    "ground_truth_answer": "The Defence Security Committee (DSC) is chaired by the Head of Operations. According to the Corporate Plan, the DSC, led by the Head of Operations, will oversee the initiative to achieve ISO 27001 certification, which is the company's second strategic goal.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-SEC-POL-001",
+        "source_quote": "The DSC will be chaired by the Head of Operations."
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Goal 2: Fortifying Our Security Posture\nWe will achieve ISO 27001 certification for our Information Security Management System (ISMS). ... The Head of Operations, through the Defence Security Committee (DSC), will oversee this initiative."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-CM-PLAN-001-008",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What are the four possible dispositions for a Problem/Change Request (PCR) when it is reviewed by the CCB?",
+    "ground_truth_answer": "The four possible dispositions for a PCR are: Approved, Rejected, Deferred, or More Information Required.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "During the review, the CCB will make one of the following dispositions:\nApproved: The change is authorised for implementation.\nRejected: The change is not approved and will not be implemented. The justification for rejection is documented.\nDeferred: The change is deemed valid but will be deferred for a future release or block update.\nMore Information Required: The PCR is returned to the impact assessment team for further analysis or clarification."
+      }
+    ]
+  }
+]

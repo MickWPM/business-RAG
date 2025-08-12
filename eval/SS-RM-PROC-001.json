@@ -1,0 +1,85 @@
+[
+  {
+    "question_id": "SS-RM-PROC-001-007",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "According to the Risk Management Process, how often must Medium level risks be reviewed?",
+    "ground_truth_answer": "According to SS-RM-PROC-001, Medium level risks must be reviewed at least monthly as part of standard project management reviews.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-RM-PROC-001",
+        "source_quote": "Medium Risks: Must be reviewed at least monthly as part of standard project management reviews."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-RM-PROC-001-008",
+    "question_type": "SYNTHESIS",
+    "question_text": "According to the Risk Management Process, who has the minimum authority to accept a Medium level risk after treatment measures have been implemented?",
+    "ground_truth_answer": "The Project/Program Manager (PM) has the minimum authority to formally accept a Medium level residual risk. The residual risk is defined as the risk level that remains after treatment measures have been implemented.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-RM-PROC-001",
+        "source_quote": "The residual risk is the risk level that remains after treatment measures have been implemented."
+      },
+      {
+        "doc_id": "SS-RM-PROC-001",
+        "source_quote": "| Medium | Project/Program Manager (PM) |"
+      }
+    ]
+  },
+  {
+    "question_id": "SS-RM-PROC-001-009",
+    "question_type": "SYNTHESIS",
+    "question_text": "Describe the complete approval process for formally accepting a High level security risk within Synthetic Systems.",
+    "ground_truth_answer": "For a High level security risk, the approval process requires two stages. First, acceptance must be formally endorsed by the Defence Security Committee (DSC). After receiving this endorsement, the risk is presented to the final acceptance authority, which for High level risks is either the Head of Operations or the DSC itself. The final acceptance must be formally documented in the Risk Register.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-RM-PROC-001",
+        "source_quote": "| High | Head of Operations / Defence Security Committee (DSC) |"
+      },
+      {
+        "doc_id": "SS-RM-PROC-001",
+        "source_quote": "For Extreme and High level security risks, acceptance must be formally endorsed by the Defence Security Committee (DSC) before being presented to the final acceptance authority."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-RM-PROC-001-010",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "The Defence Security Policy (SS-SEC-POL-001) establishes the Defence Security Committee (DSC). According to the Risk Management Process (SS-RM-PROC-001), what specific, scheduled review responsibilities does this committee have?",
+    "ground_truth_answer": "According to SS-RM-PROC-001, the Defence Security Committee (DSC), which is established in SS-SEC-POL-001, is responsible for formally reviewing all Extreme and High level risks at each of its quarterly meetings.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-RM-PROC-001",
+        "source_quote": "Extreme/High Risks: Must be formally reviewed at each quarterly Defence Security Committee (DSC) meeting, or more frequently as directed by the Head of Operations."
+      },
+      {
+        "doc_id": "SS-SEC-POL-001",
+        "source_quote": "The Defence Security Committee (DSC) is hereby formally established as the primary governance body for security matters within Synthetic Systems."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-RM-PROC-001-011",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "Who is the ultimate acceptance authority for an Extreme level risk that has been identified during a technical gate review as described in the Engineering Management Plan (SS-ENG-PLAN-001)?",
+    "ground_truth_answer": "While the risk may be identified during an engineering review (SS-ENG-PLAN-001), the process for managing it is defined in the Risk Management Process (SS-RM-PROC-001). For an Extreme level residual risk, the ultimate acceptance authority is the Chief Executive Officer (CEO).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "The detailed procedures for risk management, including the maintenance of a project risk register, will be defined in the SS-RM-PROC-001: Risk Management Process."
+      },
+      {
+        "doc_id": "SS-RM-PROC-001",
+        "source_quote": "| Extreme | Chief Executive Officer (CEO) |"
+      }
+    ]
+  },
+  {
+    "question_id": "SS-RM-PROC-001-012",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the process for appealing a risk acceptance decision made by a Project Manager?",
+    "ground_truth_answer": "The provided documents do not define a specific process for appealing a risk acceptance decision. The Risk Management Process outlines the acceptance authorities for different risk levels but does not describe a formal appeals mechanism.",
+    "retrieval_path": []
+  }
+]

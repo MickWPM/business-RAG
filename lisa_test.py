@@ -2,129 +2,154 @@ import requests
 import json
 import time
 import os
+import argparse
+import logging
 
 # --- Configuration ---
+# Set up basic logging to see the progress and any potential issues.
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 # The URL of your local lisabot server's API endpoint.
 LISABOT_API_URL = "http://localhost:8000/query"
-# The file to save the evaluation results to.
+# The output file to save the full evaluation results.
 RESULTS_FILE = "rag_test_results.json"
 
-# The JSON data containing the evaluation questions and answers
-# based on the LISA SEMP document.
-EVALUATION_QUESTIONS_JSON = """
-[
-  {
-    "question": "What is the primary purpose of the LISA mission?",
-    "expected_answer": "The primary purpose of the LISA mission is to detect and study gravitational waves in the low-frequency range (10^-4 to 10^-1 Hz) from galactic and extra-galactic binary systems.",
-    "question_type": "simple_retrieval"
-  },
-  {
-    "question": "What are the four major segments that compose the overall LISA system?",
-    "expected_answer": "The four major segments are the Flight segment, Launch segment, Ground Operations segment, and the Science Data Processing segment.",
-    "question_type": "list_extraction"
-  },
-  {
-    "question": "Who is the chairperson of the Integrated Design Team (IDT)?",
-    "expected_answer": "The Mission System Engineering Manager (MSEM) chairs the IDT.",
-    "question_type": "simple_retrieval"
-  },
-  {
-    "question": "Which project phase includes the System Requirements Review (SRR), and what is the review's purpose?",
-    "expected_answer": "The System Requirements Review (SRR) is held during Phase B. Its purpose is to ensure that the objectives and requirements of the LISA mission are understood and that the system-level requirements meet the mission objectives.",
-    "question_type": "synthesis"
-  },
-  {
-    "question": "List the working groups that the Integrated Design Team provides oversight for.",
-    "expected_answer": "The Integrated Design Team provides oversight for the Requirements Analysis Working Group, Software Architecture Working Group, Modeling Working Group, and the Integration and Test (I&T) Working Group.",
-    "question_type": "list_extraction"
-  }
-]
-"""
+def load_master_test_plan(folder_path):
+    """
+    Loads all .json files from a specified folder and combines them into a single list.
+
+    Args:
+        folder_path (str): The path to the folder containing evaluation JSON files.
+
+    Returns:
+        list: A consolidated list of all test cases from all JSON files.
+              Returns an empty list if the folder doesn't exist or contains no JSON files.
+    """
+    if not os.path.isdir(folder_path):
+        logging.error(f"Evaluation folder not found at: {folder_path}")
+        return []
+
+    master_suite = []
+    json_files = [f for f in os.listdir(folder_path) if f.endswith('.json')]
+    logging.info(f"Found {len(json_files)} JSON files in '{folder_path}'.")
+
+    for filename in json_files:
+        file_path = os.path.join(folder_path, filename)
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                if isinstance(data, list):
+                    master_suite.extend(data)
+                    logging.info(f"Successfully loaded and added {len(data)} test cases from {filename}.")
+                else:
+                    logging.warning(f"File {filename} does not contain a JSON list. Skipping.")
+        except json.JSONDecodeError:
+            logging.error(f"Could not decode JSON from {filename}. Skipping.")
+        except Exception as e:
+            logging.error(f"An unexpected error occurred while reading {filename}: {e}")
+
+    return master_suite
 
 def check_server_readiness(url, retries=5, delay=3):
     """
-    Checks if the server is ready to accept connections before running tests.
+    Checks if the LISABot server is ready to accept connections.
     """
-    print(f"Checking if LISABot server is ready at {url}...")
-    # The lisabot_server has a GET endpoint at the root now.
+    logging.info(f"Checking if LISABot server is ready at {url}...")
     server_root_url = url.replace("/query", "/")
     for i in range(retries):
         try:
             response = requests.get(server_root_url, timeout=2)
             if response.status_code == 200:
-                print("LISABot Server is up.")
+                logging.info("LISABot Server is up.")
                 return True
         except requests.exceptions.ConnectionError:
-            print(f"Connection attempt {i+1} failed. Retrying in {delay} seconds...")
+            logging.warning(f"Connection attempt {i+1} failed. Retrying in {delay} seconds...")
             time.sleep(delay)
     return False
 
+def run_evaluation_test(eval_folder='eval'):
+    """
+    Loads a master test plan from a folder, sends questions to the LISABot API,
+    and saves the comprehensive results to a JSON file.
+    """
+    master_test_plan = load_master_test_plan(eval_folder)
+    if not master_test_plan:
+        logging.fatal(f"No test cases loaded from '{eval_folder}'. Aborting.")
+        return
 
-def run_evaluation_test():
-    """
-    Sends each evaluation question to the LISABot API, prints the results,
-    and saves them to a JSON file.
-    """
     if not check_server_readiness(LISABOT_API_URL):
-        print("\n[FATAL] Server did not become ready. Aborting tests.")
-        print("Please ensure 'lisabot_server.py' is running.")
+        logging.fatal("\nLISABot Server did not become ready. Aborting tests.")
+        logging.fatal("Please ensure 'lisabot_server.py' is running.")
         return
 
     test_results = []
-    try:
-        questions = json.loads(EVALUATION_QUESTIONS_JSON)
-        
-        print("\n--- Starting LISABot Evaluation Test ---")
-        print(f"Targeting API: {LISABOT_API_URL}\n")
+    total_questions = len(master_test_plan)
+    logging.info(f"\n--- Starting LISABot Evaluation Test ---")
+    logging.info(f"Consolidated {total_questions} questions from '{eval_folder}'")
 
-        for i, item in enumerate(questions):
-            question_text = item.get("question")
-            expected_answer = item.get("expected_answer")
+    for i, item in enumerate(master_test_plan):
+        question_text = item.get("question_text")
+        if not question_text:
+            logging.warning(f"Skipping invalid item at index {i} (missing 'question_text')")
+            continue
 
-            if not question_text or not expected_answer:
-                print(f"Skipping invalid item at index {i}")
-                continue
+        logging.info(f"\n--- Test Case {i+1}/{total_questions} (ID: {item.get('question_id', 'N/A')}) ---")
+        logging.info(f"Question: {question_text}")
 
-            print(f"--- Test Case {i+1} ---")
-            print(f"Question: {question_text}")
-            
-            payload = {"query": question_text}
+        payload = {"query": question_text}
 
-            try:
-                response = requests.post(LISABOT_API_URL, json=payload, timeout=60)
-                response.raise_for_status()
-                response_data = response.json()
-                actual_answer = response_data.get("answer", "N/A").strip()
-                
-                print(f"RAG Answer:   {actual_answer}")
-                
-                # Store the results for saving later
-                test_results.append({
-                    "question": question_text,
-                    "expected_answer": expected_answer,
-                    "generated_answer": actual_answer
-                })
-                print("-" * 20)
-                time.sleep(1)
+        try:
+            response = requests.post(LISABOT_API_URL, json=payload, timeout=60)
+            response.raise_for_status()
+            response_data = response.json()
 
-            except requests.exceptions.RequestException as e:
-                print(f"\n[ERROR] An error occurred during the request: {e}")
-                # Decide whether to stop or continue
-                continue # Continue with the next question
-            except json.JSONDecodeError:
-                print(f"\n[ERROR] Failed to decode JSON response from server.")
-                print(f"Raw Response: {response.text}")
+            generated_answer = response_data.get("answer", "N/A").strip()
+            retrieved_contexts = response_data.get("source_documents", [])
 
-        # Save the results to a file
-        with open(RESULTS_FILE, 'w', encoding='utf-8') as f:
-            json.dump(test_results, f, indent=4)
-        print(f"\n--- Evaluation Test Complete ---")
-        print(f"Results saved to '{RESULTS_FILE}'")
+            logging.info(f"RAG Answer: {generated_answer}")
+            logging.info(f"Retrieved {len(retrieved_contexts)} source documents.")
 
-    except json.JSONDecodeError:
-        print("[ERROR] The provided JSON string for questions is invalid.")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+            result_to_save = {
+                "question_id": item.get("question_id"),
+                "question_type": item.get("question_type"),
+                "question_text": question_text,
+                "ground_truth_answer": item.get("ground_truth_answer"),
+                "ground_truth_retrieval_path": item.get("retrieval_path", []),
+                "generated_answer": generated_answer,
+                "retrieved_contexts": retrieved_contexts
+            }
+            test_results.append(result_to_save)
+            time.sleep(1)
+
+        except requests.exceptions.RequestException as e:
+            logging.error(f"[ERROR] An error occurred during the request: {e}")
+            continue
+        except json.JSONDecodeError:
+            logging.error(f"[ERROR] Failed to decode JSON response from server. Raw Response: {response.text}")
+
+    with open(RESULTS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(test_results, f, indent=4)
+    logging.info(f"\n--- Evaluation Test Complete ---")
+    logging.info(f"Comprehensive results saved to '{RESULTS_FILE}'")
+
+def main():
+    """
+    Main function to parse arguments and run the evaluation.
+    """
+    parser = argparse.ArgumentParser(description="Run a RAG evaluation suite against a LISABot server.")
+    parser.add_argument(
+        "--eval_folder",
+        type=str,
+        default="eval",  # Default to a folder named 'eval' in the current directory
+        help="Path to the folder containing the evaluation .json files. Defaults to './eval'."
+    )
+    args = parser.parse_args()
+    
+    run_evaluation_test(args.eval_folder)
 
 if __name__ == "__main__":
-    run_evaluation_test()
+    # To run, use the command line:
+    # python lisa_test.py --eval_folder /path/to/your/eval_files
+    # Or if your folder is named 'eval' in the same directory:
+    # python lisa_test.py
+    main()
