@@ -1,0 +1,89 @@
+[
+  {
+    "question_id": "SS-TRI-SPEC-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the maximum weight of the Trident-S Antenna Array's above-deck equipment?",
+    "ground_truth_answer": "The total weight of the Trident-S above-deck equipment (pedestal, antenna, and radome) shall not exceed 200 kg.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-SPEC-001",
+        "source_quote": "The total weight of the above-deck equipment (pedestal, antenna, and radome) shall not exceed 200 kg."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-SPEC-001-002",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the required pointing accuracy for the Trident-S antenna?",
+    "ground_truth_answer": "The Trident-S system is required to maintain a pointing accuracy of less than or equal to 0.2 degrees RMS.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-SPEC-001",
+        "source_quote": "The system shall maintain a pointing accuracy of ≤ 0.2 degrees RMS under the dynamic conditions specified in Section 3.3."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-SPEC-001-003",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "What are the operational frequency bands for the Trident-S antenna system?",
+    "ground_truth_answer": "The Trident-S system must operate in Ku-Band (Rx: 10.7 – 12.75 GHz, Tx: 13.75 – 14.5 GHz) and Ka-Band (Rx: 20.2 – 21.2 GHz, Tx: 30.0 – 31.0 GHz).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-SPEC-001",
+        "source_quote": "The system shall provide simultaneous transmit and receive capabilities in the following frequency bands:\n* Ku-Band:\n  * Receive (Rx): 10.7 – 12.75 GHz\n  * Transmit (Tx): 13.75 – 14.5 GHz\n* Ka-Band:\n  * Receive (Rx): 20.2 – 21.2 GHz\n  * Transmit (Tx): 30.0 – 31.0 GHz"
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-SPEC-001-004",
+    "question_type": "SYNTHESIS",
+    "question_text": "What is the required external finish and color for the Trident-S antenna?",
+    "ground_truth_answer": "All external surfaces of the Trident-S antenna must be treated with a multi-layer marine-grade paint system, and the color must be matte grey, corresponding to FED-STD-595, color 36231.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-SPEC-001",
+        "source_quote": "All external surfaces shall be manufactured from corrosion-resistant materials (e.g., marine-grade aluminum, stainless steel 316) or treated with a multi-layer marine-grade paint system."
+      },
+      {
+        "doc_id": "SS-TRI-SPEC-001",
+        "source_quote": "The finish shall be matte grey (FED-STD-595, color 36231)."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-SPEC-001-005",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "According to the Trident-S Specification, what is the governing document that defines the engineering lifecycle its design and development must follow?",
+    "ground_truth_answer": "The Trident-S Specification states that all design and development activities must be conducted in accordance with the processes defined in SS-ENG-PLAN-001: Engineering Management Plan. This plan details the five phases of the engineering lifecycle: Concept, Design, Implementation, Test & Evaluation, and In-Service Support.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-SPEC-001",
+        "source_quote": "All design, development, and testing activities for this system shall be conducted in accordance with the processes and lifecycle phases defined in SS-ENG-PLAN-001: Engineering Management Plan."
+      },
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "All engineering activities at Synthetic Systems shall follow a structured lifecycle model to ensure a systematic progression from concept to disposal. The lifecycle consists of five distinct phases, each culminating in a formal gate review to assess readiness to proceed to the next phase."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-SPEC-001-006",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the expected Mean Time Between Failure (MTBF) for the Trident-S Antenna Array?",
+    "ground_truth_answer": "I am sorry, but the provided Trident-S Mechanical & RF Specification (SS-TRI-SPEC-001) does not contain a requirement for the Mean Time Between Failure (MTBF).",
+    "retrieval_path": []
+  },
+  {
+    "question_id": "SS-TRI-SPEC-001-007",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the required enclosure sealing rating for the Trident-S radome and pedestal assembly?",
+    "ground_truth_answer": "The radome and pedestal assembly for the Trident-S must be sealed to a minimum rating of IP67.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-SPEC-001",
+        "source_quote": "The radome and pedestal assembly shall be sealed to a minimum rating of IP67, protecting internal components from water and dust ingress."
+      }
+    ]
+  }
+]

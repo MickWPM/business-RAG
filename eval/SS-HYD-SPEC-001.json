@@ -93,5 +93,33 @@
         "source_quote": "The system shall provide the following data interfaces:\n* 4x 1000BASE-T Gigabit Ethernet ports (RJ45 connectors) for network connectivity.\n* 1x 10/100BASE-T Ethernet port (RJ45 connector) for the management interface."
       }
     ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-008",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "What Tactical Data Link (TDL) message formats is the Hydra-C4 required to support?",
+    "ground_truth_answer": "The Hydra-C4 system is required to support Link 16 (J-Series) Messages and Variable Message Format (VMF).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The system shall be capable of processing and routing Tactical Data Link (TDL) messages. It shall support, at a minimum:\n* **Link 16 (J-Series) Messages:** The system shall parse and validate J-series messages for routing to specified command and control nodes.\n* **Variable Message Format (VMF):** The system shall support the transmission and reception of VMF messages."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-009",
+    "question_type": "SYNTHESIS",
+    "question_text": "How does the Hydra-C4 system ensure secure voice communications?",
+    "ground_truth_answer": "The Hydra-C4 system ensures secure voice communications by using the Session Initiation Protocol (SIP) for setting up calls and securing all Voice over IP (VoIP) traffic with the Secure Real-time Transport Protocol (SRTP).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "VoIP Protocols: The system shall support Session Initiation Protocol (SIP) for call setup and teardown."
+      },
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "Voice Encryption: All VoIP traffic shall be secured using the Secure Real-time Transport Protocol (SRTP)."
+      }
+    ]
   }
 ]

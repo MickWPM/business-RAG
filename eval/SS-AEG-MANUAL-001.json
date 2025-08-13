@@ -1,0 +1,65 @@
+[
+  {
+    "question_id": "SS-AEG-MANUAL-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "According to the Aegis-Link user manual, how long is the inactivity period before a user is automatically logged out?",
+    "ground_truth_answer": "The Aegis-Link software will automatically log out a user after 30 minutes of inactivity.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-MANUAL-001",
+        "source_quote": "Note: As per security requirements, the system will automatically log you out after 30 minutes of inactivity."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-MANUAL-001-002",
+    "question_type": "SYNTHESIS",
+    "question_text": "What information is displayed for the Hydra-C4 module in the Detailed Status View of the Aegis-Link software?",
+    "ground_truth_answer": "When the Hydra-C4 is selected, the Detailed Status View displays its power status, internal temperature, current data throughput, and the results of the last Built-In Test (BIT).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-MANUAL-001",
+        "source_quote": "For Hydra-C4: This view shows power status, internal temperature, current data throughput, and the results of the last BIT."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-MANUAL-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "If an operator encounters an error that is not listed in the troubleshooting section of the user manual, what is the formal process they must follow?",
+    "ground_truth_answer": "For any unlisted error, the operator must submit a Problem/Change Request (PCR). This action is governed by the process defined in the SS-CM-PLAN-001: Configuration Management Plan.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-MANUAL-001",
+        "source_quote": "For all unlisted errors or feature requests, please submit a Problem/Change Request (PCR). The formal process for initiating and managing a PCR is defined in the SS-CM-PLAN-001: Configuration Management Plan."
+      },
+      {
+        "doc_id": "SS-CM-PLAN-001",
+        "source_quote": "The PCR is the sole mechanism for requesting a change to a baselined CI."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-MANUAL-001-004",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "The Aegis-Link Operator Manual describes how to initiate a Built-In Test. Which parent document formally defines the requirement for the software to have this capability?",
+    "ground_truth_answer": "The requirement for the Aegis-Link software to provide controls to initiate a Built-In Test on the Hydra-C4 module is formally defined in the Aegis-Link Software Requirements Specification (SS-AEG-SRS-001), requirement ID REQ-FUN-005.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-MANUAL-001",
+        "source_quote": "In the Control Panel on the right, locate the 'Diagnostics' section. Click the Initiate BIT button."
+      },
+      {
+        "doc_id": "SS-AEG-SRS-001",
+        "source_quote": "REQ-FUN-005: The software shall provide controls to initiate a Built-In Test (BIT) on the Hydra-C4 module."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-MANUAL-001-005",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the default password for a new user account created in the Aegis-Link software?",
+    "ground_truth_answer": "I am sorry, but the provided Operator User Manual does not contain information about default passwords for new users. This information would likely be managed by system administrators.",
+    "retrieval_path": []
+  }
+]

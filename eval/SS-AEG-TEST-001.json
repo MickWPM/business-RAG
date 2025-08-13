@@ -1,0 +1,89 @@
+[
+  {
+    "question_id": "SS-AEG-TEST-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the role of the Independent Verification & Validation (IV&V) agent in the testing of the Aegis-Link software?",
+    "ground_truth_answer": "The IV&V agent, an external contractor, is responsible for independently developing and executing a subset of tests on the final software build to verify critical requirements and provide an objective report on their findings.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-TEST-001",
+        "source_quote": "The IV&V agent will be provided with the SRS and the final software build. They will independently develop and execute a subset of tests to verify critical functionality and performance requirements."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-TEST-001-002",
+    "question_type": "SYNTHESIS",
+    "question_text": "What hardware is required to conduct system testing for the Aegis-Link software?",
+    "ground_truth_answer": "The required hardware for Aegis-Link system testing includes a dedicated test server, a hardware-in-the-loop simulator for the Hydra-C4 and Trident-S systems, and at least one production-representative unit of both the Hydra-C4 and Trident-S for final integration testing.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-TEST-001",
+        "source_quote": "A dedicated test server running the Aegis-Link software."
+      },
+      {
+        "doc_id": "SS-AEG-TEST-001",
+        "source_quote": "A hardware-in-the-loop simulator capable of simulating the interfaces and data streams of the Hydra-C4 and Trident-S systems."
+      },
+      {
+        "doc_id": "SS-AEG-TEST-001",
+        "source_quote": "At least one production-representative Hydra-C4 and Trident-S unit for final integration testing."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-TEST-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "According to the Aegis-Link Test Plan, what is the governing document that defines the process for managing defects found during testing?",
+    "ground_truth_answer": "The Aegis-Link Test Plan states that the defect management lifecycle (logging, triage, resolution, etc.) must follow the process defined in the Test & Evaluation Master Plan (SS-TEST-PLAN-001), Section 7.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-TEST-001",
+        "source_quote": "The lifecycle for defect management (logging, triage, resolution, verification, closure) shall follow the process defined in SS-TEST-PLAN-001, Section 7."
+      },
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "7.1 Defect Management Lifecycle\n1. Identification: A potential defect is observed during testing.\n2. Logging: A formal Defect Report (DR) is created..."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-TEST-001-004",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "Test case TC-SEC-02 in the Aegis-Link test plan is designed to verify which specific software requirement from the SRS?",
+    "ground_truth_answer": "Test case TC-SEC-02 verifies requirement REQ-NFR-008 from the Aegis-Link SRS (SS-AEG-SRS-001), which states that the software shall automatically log out a user after 30 minutes of inactivity.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-TEST-001",
+        "source_quote": "| REQ-NFR-008 | Inactivity Timeout | TC-SEC-02 |"
+      },
+      {
+        "doc_id": "SS-AEG-SRS-001",
+        "source_quote": "REQ-NFR-008: The software shall automatically log out a user after 30 minutes of inactivity."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-TEST-001-005",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "The Aegis-Link Test plan mentions multiple levels of testing. Which parent document defines the overall corporate strategy for these levels of testing, such as System Integration Testing and Factory Acceptance Testing?",
+    "ground_truth_answer": "The overall corporate strategy and definitions for the different levels of testing (Component, Integration, System) are established in the Test & Evaluation Master Plan (SS-TEST-PLAN-001).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-TEST-001",
+        "source_quote": "The overall test strategy, including defect management and reporting, is governed by the master framework established in SS-TEST-PLAN-001: Test & Evaluation Master Plan (TEMP)."
+      },
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "5. Levels of Testing\nOur T&E strategy employs a progressive, multi-level approach to build confidence in the system from the component level up to the final integrated product."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-TEST-001-006",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the name of the external third-party contractor selected to be the IV&V agent for the Aegis-Link software?",
+    "ground_truth_answer": "I am sorry, but the provided documents do not name the specific contractor selected for the Independent Verification & Validation (IV&V) role. The plan only states that an external, third-party contractor will be used.",
+    "retrieval_path": []
+  }
+]

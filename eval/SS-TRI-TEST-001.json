@@ -1,0 +1,85 @@
+[
+  {
+    "question_id": "SS-TRI-TEST-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the overall RMS level of the random vibration test profile for the Trident-S ESS procedure?",
+    "ground_truth_answer": "The overall RMS level for the random vibration test is 10.5 g.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-TEST-001",
+        "source_quote": "| **Overall RMS** | **10.5 g** |"
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-TEST-001-002",
+    "question_type": "SYNTHESIS",
+    "question_text": "What are the two primary conditions that must be met for a Trident-S antenna to pass the Environmental Stress Screening?",
+    "ground_truth_answer": "To pass the ESS, the Trident-S antenna must successfully pass a post-test functional check without errors, and a detailed post-test inspection must reveal no physical damage, degradation, or loose components.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-TEST-001",
+        "source_quote": "The post-test inspection reveals no physical damage, degradation, or loose components."
+      },
+      {
+        "doc_id": "SS-TRI-TEST-001",
+        "source_quote": "The UUT successfully passes the post-test functional check without any errors."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-TEST-001-003",
+    "question_type": "SYNTHESIS",
+    "question_text": "Describe the complete thermal cycle profile used in the Trident-S ESS procedure, including temperatures, dwell times, and number of cycles.",
+    "ground_truth_answer": "The Trident-S is subjected to 10 thermal cycles. Each cycle involves cooling from ambient to -30°C, dwelling for 60 minutes, heating to +60°C, dwelling for 60 minutes, and then returning to ambient temperature. The minimum ramp rate is 5°C per minute.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-TEST-001",
+        "source_quote": "Subject the UUT to **10 thermal cycles** as defined by the profile below."
+      },
+      {
+        "doc_id": "SS-TRI-TEST-001",
+        "source_quote": "| 2 | Ramp Down To | -30°C |\n| 3 | Ramp Rate | 5°C / minute (minimum) |\n| 4 | Dwell at -30°C | 60 minutes |\n| 5 | Ramp Up To | +60°C |\n| 6 | Ramp Rate | 5°C / minute (minimum) |\n| 7 | Dwell at +60°C | 60 minutes |"
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-TEST-001-004",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "The ESS procedure specifies a thermal cycling range from -30°C to +60°C. Which requirement in the Trident-S specification does this test verify?",
+    "ground_truth_answer": "The thermal cycling test, with its range of -30°C to +60°C, is designed to verify the operating temperature requirement specified in the Trident-S Mechanical & RF Specification (SS-TRI-SPEC-001), Section 3.3.4.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-TEST-001",
+        "source_quote": "This test verifies the UUT's resilience to temperature extremes as required by **SS-TRI-SPEC-001**, Section 3.3.4."
+      },
+      {
+        "doc_id": "SS-TRI-SPEC-001",
+        "source_quote": "The system shall operate within an ambient temperature range of -30°C to +60°C."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-TEST-001-005",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "If a Trident-S antenna fails the ESS procedure, what is the governing document that defines the process for managing the resulting Defect Report?",
+    "ground_truth_answer": "If a failure occurs, a Defect Report (DR) must be raised. The process for managing this DR is defined in the Test & Evaluation Master Plan (SS-TEST-PLAN-001).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-TEST-001",
+        "source_quote": "In the event of a FAIL result, the UUT shall be quarantined, and a Defect Report (DR) shall be raised immediately. The management and resolution of the defect shall be handled in accordance with the Defect Management process defined in SS-TEST-PLAN-001."
+      },
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "The systematic management of defects is critical to product quality. All defects, anomalies, and unexpected test results shall be formally documented and tracked."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-TEST-001-006",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the specific model number of the thermal chamber that must be used for the Trident-S ESS testing?",
+    "ground_truth_answer": "I'm sorry, but the provided documents do not specify a model number for the thermal chamber. The 'Trident-S Environmental Stress Screening (ESS) Procedure' lists 'Thermal Chamber' as a type of required equipment but does not mandate a specific model.",
+    "retrieval_path": []
+  }
+]
