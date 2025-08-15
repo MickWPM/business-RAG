@@ -1,0 +1,125 @@
+[
+  {
+    "question_id": "SS-HYD-SPEC-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the maximum weight of the Hydra-C4 Comms Module?",
+    "ground_truth_answer": "The total weight of the Hydra-C4 Comms Module system shall not exceed 25 kilograms.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The total weight of the system shall not exceed 25 kilograms."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-002",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the required encryption standard for the Hydra-C4 system?",
+    "ground_truth_answer": "The Hydra-C4 system must implement, at a minimum, the Advanced Encryption Standard with a 256-bit key length (AES-256).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The system shall implement, at a minimum, the Advanced Encryption Standard with a 256-bit key length (AES-256)."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-003",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the specified operating temperature range for the Hydra-C4 module?",
+    "ground_truth_answer": "The Hydra-C4 module must operate within a temperature range of -10°C to +55°C.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The system shall operate within a temperature range of -10°C to +55°C."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-004",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "According to the Hydra-C4 System Specification, what parent document defines the engineering lifecycle that its development must follow?",
+    "ground_truth_answer": "According to the Hydra-C4 System Specification (SS-HYD-SPEC-001), the development must follow the lifecycle defined in SS-ENG-PLAN-001: Engineering Management Plan.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "All development activities for the system shall be conducted in accordance with the engineering lifecycle defined in SS-ENG-PLAN-001: Engineering Management Plan."
+      },
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "All engineering activities at Synthetic Systems shall follow a structured lifecycle model to ensure a systematic progression from concept to disposal."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-005",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the manufacturing date of the first Hydra-C4 prototype?",
+    "ground_truth_answer": "I am sorry, but the provided documents do not contain information about the manufacturing date of the first Hydra-C4 prototype. The System Specification outlines requirements for the system, not historical production records.",
+    "retrieval_path": []
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-006",
+    "question_type": "SYNTHESIS",
+    "question_text": "What are the key physical and power constraints for the Hydra-C4 module?",
+    "ground_truth_answer": "The Hydra-C4 module must be in a 19-inch rack-mountable chassis with dimensions not exceeding 8.75\" (H) x 17.75\" (W) x 22.0\" (D), weigh no more than 25 kg, and consume a maximum of 450 Watts (50W in standby) from a 115 VAC, 60 Hz power source.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The dimensions of the chassis shall not exceed:\n* **Height:** 8.75 inches (5U)\n* **Width:** 17.75 inches\n* **Depth:** 22.0 inches (from front mounting flange to rearmost connector)"
+      },
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The total weight of the system shall not exceed 25 kilograms."
+      },
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The system shall consume no more than 450 Watts under maximum operational load. In standby mode, power consumption shall not exceed 50 Watts."
+      },
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The system shall operate from a standard shipboard power source of 115 VAC, 60 Hz."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-007",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "What data interfaces must be provided by the Hydra-C4 system?",
+    "ground_truth_answer": "The Hydra-C4 system must provide the following data interfaces: 4x 1000BASE-T Gigabit Ethernet ports (RJ45 connectors) for network connectivity, and 1x 10/100BASE-T Ethernet port (RJ45 connector) for the management interface.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The system shall provide the following data interfaces:\n* 4x 1000BASE-T Gigabit Ethernet ports (RJ45 connectors) for network connectivity.\n* 1x 10/100BASE-T Ethernet port (RJ45 connector) for the management interface."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-008",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "What Tactical Data Link (TDL) message formats is the Hydra-C4 required to support?",
+    "ground_truth_answer": "The Hydra-C4 system is required to support Link 16 (J-Series) Messages and Variable Message Format (VMF).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "The system shall be capable of processing and routing Tactical Data Link (TDL) messages. It shall support, at a minimum:\n* **Link 16 (J-Series) Messages:** The system shall parse and validate J-series messages for routing to specified command and control nodes.\n* **Variable Message Format (VMF):** The system shall support the transmission and reception of VMF messages."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-009",
+    "question_type": "SYNTHESIS",
+    "question_text": "How does the Hydra-C4 system ensure secure voice communications?",
+    "ground_truth_answer": "The Hydra-C4 system ensures secure voice communications by using the Session Initiation Protocol (SIP) for setting up calls and securing all Voice over IP (VoIP) traffic with the Secure Real-time Transport Protocol (SRTP).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "VoIP Protocols: The system shall support Session Initiation Protocol (SIP) for call setup and teardown."
+      },
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "Voice Encryption: All VoIP traffic shall be secured using the Secure Real-time Transport Protocol (SRTP)."
+      }
+    ]
+  }
+]

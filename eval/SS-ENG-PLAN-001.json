@@ -1,0 +1,209 @@
+[
+  {
+    "question_id": "SS-ENG-PLAN-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the primary objective of the Test Readiness Review (TRR)?",
+    "ground_truth_answer": "The primary objective of the Test Readiness Review (TRR) is to verify that the system is ready for the commencement of formal Test and Evaluation, ensuring all components are integrated and test procedures, equipment, and personnel are in place.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "TRR Objective: To verify that the system is ready for the commencement of formal Test and Evaluation. This includes confirming that all components are integrated, and test procedures, equipment, and personnel are in place."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-002",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "List the five phases of the Engineering Lifecycle defined in the Engineering Management Plan.",
+    "ground_truth_answer": "The five phases of the Engineering Lifecycle are: Concept, Design, Implementation, Test & Evaluation, and In-Service Support.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "The lifecycle consists of five distinct phases, each culminating in a formal gate review to assess readiness to proceed to the next phase. 4.1 Phase 1: Concept... 4.2 Phase 2: Design... 4.3 Phase 3: Implementation... 4.4 Phase 4: Test & Evaluation (T&E)... 4.5 Phase 5: In-Service Support"
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "According to the Engineering Management Plan, all product development must adhere to the quality standards in SS-QM-PLAN-001. What international standard is Synthetic Systems committed to maintaining compliance with as per the Quality Management Plan?",
+    "ground_truth_answer": "According to the Quality Management Plan (SS-QM-PLAN-001), Synthetic Systems is committed to maintaining compliance with the ISO 9001:2015 quality management standard.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "All product development must adhere to the quality standards outlined in SS-QM-PLAN-001 Quality Management Plan."
+      },
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "Synthetic Systems is committed to maintaining compliance with the ISO 9001:2015 quality management standard."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-004",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "The Engineering Management Plan states that security is a key consideration. Which corporate goal from the Corporate Plan does the implementation of the Defence Security Policy directly support?",
+    "ground_truth_answer": "The implementation of the Defence Security Policy supports the strategic goal of 'Fortifying Our Security Posture', which includes achieving ISO 27001 certification for the company's Information Security Management System (ISMS).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Engineering activities shall incorporate the principles and requirements of the SS-SEC-POL-001 Defence Security Policy."
+      },
+      {
+        "doc_id": "SS-SEC-POL-001",
+        "source_quote": "The implementation of this policy is a key enabler of our corporate strategy, directly supporting our ability to deliver secure and resilient communication solutions to the Australian Defence Force and our allies."
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Goal 2: Fortifying Our Security Posture\nWe will achieve ISO 27001 certification for our Information Security Management System (ISMS)."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-005",
+    "question_type": "SYNTHESIS",
+    "question_text": "Who chairs the Configuration Control Board (CCB) and what is the governing document for its procedures?",
+    "ground_truth_answer": "The Chief Engineer chairs the Configuration Control Board (CCB), and its activities are governed by the SS-CM-PLAN-001 Configuration Management Plan.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Chair: Chief Engineer."
+      },
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Governing Procedure: All CCB activities, including the processing of ECPs, shall be conducted in accordance with the SS-CM-PLAN-001 Configuration Management Plan."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-006",
+    "question_type": "SYNTHESIS",
+    "question_text": "During which phase of the Engineering Lifecycle is the Critical Design Review (CDR) held, and what does it signify?",
+    "ground_truth_answer": "The Critical Design Review (CDR) is held during the Design phase. It is the final technical review before production commences and signifies that the design is mature and ready for implementation, fabrication, and integration.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "The Design phase translates the validated system requirements into a detailed technical solution."
+      },
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Critical Design Review (CDR): To demonstrate the maturity of the design and establish that it is ready for implementation, fabrication, and integration. The CDR is the final technical review before production commences."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-007",
+    "question_type": "SYNTHESIS",
+    "question_text": "What is the purpose of the Physical Configuration Audit (PCA) and at the end of which lifecycle phase is it conducted?",
+    "ground_truth_answer": "The Physical Configuration Audit (PCA) is conducted at the end of the Test & Evaluation phase. Its purpose is to verify that the as-built system configuration matches the approved technical documentation and that all required testing is complete and successful.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "The T&E phase systematically verifies and validates that the implemented system meets all specified performance and functional requirements."
+      },
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Gate Review: Physical Configuration Audit (PCA). PCA Objective: To verify that the as-built system configuration matches the approved technical documentation and that all required testing is complete and successful."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-008",
+    "question_type": "SYNTHESIS",
+    "question_text": "Which two corporate policies are explicitly mentioned in the Engineering Management Plan's policy statement as being mandatory for adherence?",
+    "ground_truth_answer": "The policy statement in the Engineering Management Plan mandates adherence to the quality standards in SS-QM-PLAN-001 and the security principles in SS-SEC-POL-001.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "All product development must adhere to the quality standards outlined in SS-QM-PLAN-001 and the security principles defined in SS-SEC-POL-001."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-009",
+    "question_type": "SYNTHESIS",
+    "question_text": "What are two key activities performed during the Concept phase of the engineering lifecycle?",
+    "ground_truth_answer": "Two key activities performed during the Concept phase are mission analysis and requirements elicitation, and the development of the initial System Requirements Specification (SRS). Other correct answers include technology feasibility studies and developing high-level architectural concepts.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Key Activities: Mission analysis and requirements elicitation. Technology feasibility studies and trade-off analysis. Development of the initial System Requirements Specification (SRS). High-level architectural concepts."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-010",
+    "question_type": "SYNTHESIS",
+    "question_text": "Who is responsible for the day-to-day management of engineering activities on a specific project, and who holds ultimate accountability for all engineering outcomes at the company?",
+    "ground_truth_answer": "The Project Engineering Manager (PEM) is responsible for the day-to-day management of engineering activities on a specific project, while the Head of Engineering holds ultimate accountability for all engineering outcomes at Synthetic Systems.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "The Head of Engineering is the owner of this plan and holds ultimate accountability for all engineering outcomes at Synthetic Systems."
+      },
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "For each project, a Project Engineering Manager (PEM) will be assigned. The PEM is responsible for the day-to-day management of engineering activities, including planning, execution, and reporting..."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-011",
+    "question_type": "SYNTHESIS",
+    "question_text": "According to the Safety and Risk Management section, which document defines the detailed procedures for risk management, and at which three key lifecycle gate reviews are technical risk assessments mandatory?",
+    "ground_truth_answer": "The detailed procedures for risk management are defined in SS-RM-PROC-001: Risk Management Process. Technical risk assessments are a mandatory component of the System Requirements Review (SRR), Preliminary Design Review (PDR), and Critical Design Review (CDR).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "The detailed procedures for risk management, including the maintenance of a project risk register, will be defined in the SS-RM-PROC-001: Risk Management Process."
+      },
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Technical risk assessments are a mandatory component of the key lifecycle gate reviews (SRR, PDR, CDR)."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-012",
+    "question_type": "SYNTHESIS",
+    "question_text": "What type of testing is performed during the Test & Evaluation phase to validate effectiveness in a simulated operational environment?",
+    "ground_truth_answer": "During the Test & Evaluation phase, Operational Testing (OT) is performed to validate the system's effectiveness in a simulated operational environment.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Operational Testing (OT) to validate effectiveness in a simulated operational environment."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-013",
+    "question_type": "SYNTHESIS",
+    "question_text": "Besides the Chair, which three functional areas are represented as members of the Configuration Control Board (CCB)?",
+    "ground_truth_answer": "The Configuration Control Board (CCB) members include representatives from Program Management, Engineering, Test, and Logistics.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Members: Representatives from Program Management, Engineering, Test, and Logistics."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-014",
+    "question_type": "SYNTHESIS",
+    "question_text": "What is the gate review for the Concept phase and what is its objective?",
+    "ground_truth_answer": "The gate review for the Concept phase is the System Requirements Review (SRR). Its objective is to ensure the system requirements are fully defined, understood, and achievable within programmatic constraints before committing to detailed design.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Gate Review: System Requirements Review (SRR). SRR Objective: To ensure the system requirements are fully defined, understood, and achievable within programmatic constraints before committing to detailed design."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-ENG-PLAN-001-015",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the specific budget allocated for the development of the next version of the Aegis-Link Control Software?",
+    "ground_truth_answer": "I am sorry, but the provided documents do not contain information about the specific budget allocated for the development of the next version of the Aegis-Link Control Software. The Corporate Plan mentions growing the software team to support Aegis-Link, but no budget figures are provided.",
+    "retrieval_path": []
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "question_id": "SS-HYD-TEST-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the pass criterion for the system boot time test in the Hydra-C4 Hardware Acceptance Test Procedure?",
+    "ground_truth_answer": "According to the Hydra-C4 Hardware Acceptance Test Procedure, the UUT must be fully operational within 120 seconds from the application of primary power to pass the boot time test.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-TEST-001",
+        "source_quote": "Power on the UUT. Using a stopwatch, measure the time from power application until the system status indicator turns solid green. | The UUT is fully operational within 120 seconds."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-TEST-001-002",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What piece of test equipment is specified for measuring data throughput in the Hydra-C4 HAT?",
+    "ground_truth_answer": "The required test equipment for measuring data throughput is a Network Data Generator/Analyzer, specifically the Ixia XG12.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-TEST-001",
+        "source_quote": "| Network Data Generator/Analyzer | Ixia XG12 |"
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-TEST-001-003",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "What personnel are required to be present to conduct the Hydra-C4 Hardware Acceptance Test?",
+    "ground_truth_answer": "The personnel required to conduct the Hydra-C4 Hardware Acceptance Test are one Certified Test Engineer acting as the Test Conductor, and one Synthetic Systems QA Representative acting as the Quality Assurance Witness.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-TEST-001",
+        "source_quote": "Personnel Requirements\nThe following personnel are required to conduct this test procedure:\n* Test Conductor: 1x Certified Test Engineer\n* Quality Assurance Witness: 1x Synthetic Systems QA Representative"
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-TEST-001-004",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "What is the maximum power consumption allowed for the Hydra-C4 during the burst data throughput test, and which requirement in the system specification does this verify?",
+    "ground_truth_answer": "During the burst data throughput test, the maximum allowed power consumption is 450 Watts. This test verifies the requirement from SS-HYD-SPEC-001, Section 3.3.3, which states the system shall consume no more than 450 Watts under maximum operational load.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-TEST-001",
+        "source_quote": "Max Power Consumption: While the 250 Mbps burst test (1.4.2) is running, measure the UUT's power consumption. | Power consumption ≤ 450 Watts."
+      },
+      {
+        "doc_id": "SS-HYD-SPEC-001",
+        "source_quote": "Power Consumption: The system shall consume no more than 450 Watts under maximum operational load."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-TEST-001-005",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "If an anomaly is found during the execution of the Hydra-C4 acceptance test, what is the governing document that defines the procedure for managing it?",
+    "ground_truth_answer": "If an anomaly is found, it must be recorded and managed according to the Defect Management framework defined in the Test & Evaluation Master Plan (SS-TEST-PLAN-001).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-HYD-TEST-001",
+        "source_quote": "All test results, observations, and any anomalies discovered during the execution of this procedure shall be recorded and managed in accordance with the Defect Management framework defined in SS-TEST-PLAN-001."
+      },
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "The systematic management of defects is critical to product quality. All defects, anomalies, and unexpected test results shall be formally documented and tracked."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-HYD-TEST-001-006",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the total cost of the Test Cable Kit (SS-HYD-TC-001) used in the acceptance test?",
+    "ground_truth_answer": "I am sorry, but the provided documents do not contain information about the cost of the test equipment. The Hardware Acceptance Test Procedure lists the required equipment but does not include procurement or financial details.",
+    "retrieval_path": []
+  }
+]

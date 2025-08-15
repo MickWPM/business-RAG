@@ -1,0 +1,69 @@
+[
+  {
+    "question_id": "SS-TRI-MANUAL-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the specified torque for the M20 mounting bolts when installing the Trident-S antenna?",
+    "ground_truth_answer": "The M20 mounting bolts for the Trident-S antenna must be tightened to a final torque specification of 250 Nm (184 ft-lbs).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-MANUAL-001",
+        "source_quote": "Using a calibrated torque wrench, tighten each bolt to a final torque specification of 250 Nm (184 ft-lbs)."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-MANUAL-001-002",
+    "question_type": "SYNTHESIS",
+    "question_text": "What are the required maintenance actions for the Trident-S antenna at the 12-month interval?",
+    "ground_truth_answer": "At the 12-month interval, the maintenance technician must perform a Seal Integrity Check, which involves inspecting the main radome-to-pedestal seal and all connector seals, and a Corrosion Inspection, which involves checking the pedestal housing and hardware for paint blistering or corrosion.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-MANUAL-001",
+        "source_quote": "| 12 Months | Seal Integrity Check | 1. Carefully inspect the integrity of the main seal between the radome and the pedestal base. <br> 2. Check all connector seals for signs of cracking, brittleness, or degradation. |"
+      },
+      {
+        "doc_id": "SS-TRI-MANUAL-001",
+        "source_quote": "| 12 Months| Corrosion Inspection| 1. Inspect the pedestal housing and mounting hardware for any signs of paint blistering, flaking, or underlying corrosion. <br> 2. Pay close attention to joints and interfaces between different materials. |"
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-MANUAL-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "If a technician discovers water inside the Trident-S radome, what formal process must they follow according to the maintenance manual?",
+    "ground_truth_answer": "If water is found inside the radome, the technician must immediately power down the system and raise a Non-Conformance Report (NCR) in accordance with the process defined in the Quality Management Plan (SS-QM-PLAN-001).",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-MANUAL-001",
+        "source_quote": "For all unresolved faults, the user shall submit a Non-Conformance Report (NCR) in accordance with the process defined in SS-QM-PLAN-001: Quality Management Plan."
+      },
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "The purpose of the Non-Conformance Reporting (NCR) process is to formally document, track, and resolve any instance where a product, process, or service fails to meet its specified requirements."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-MANUAL-001-004",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "If a field service technician needs to visit a Synthetic Systems facility to assist with a troubleshooting issue, what procedure governs their site access?",
+    "ground_truth_answer": "Any visit by a non-company technician to a Synthetic Systems facility is governed by the SS-VISITOR-PROC-001: Visitor Management and Escort Procedures, which requires all visitors to be pre-registered and escorted at all times.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TRI-MANUAL-001",
+        "source_quote": "Please note that any visit to a Synthetic Systems facility by non-company personnel for joint investigation or repair will be subject to the procedures outlined in SS-VISITOR-PROC-001: Visitor Management and Escort Procedures."
+      },
+      {
+        "doc_id": "SS-VISITOR-PROC-001",
+        "source_quote": "All visitors, without exception, must be accompanied by their designated Escort at all times while within Synthetic Systems facilities."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TRI-MANUAL-001-005",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the part number for the replacement radome seal for the Trident-S antenna?",
+    "ground_truth_answer": "I am sorry, but the provided Installation & Maintenance Manual does not contain part numbers for spare components like the radome seal. It only outlines the schedule for inspecting the seal.",
+    "retrieval_path": []
+  }
+]

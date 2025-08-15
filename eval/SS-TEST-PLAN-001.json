@@ -1,0 +1,133 @@
+[
+  {
+    "question_id": "SS-TEST-PLAN-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the primary purpose of System Integration Testing (SIT)?",
+    "ground_truth_answer": "The primary purpose of System Integration Testing (SIT) is to identify and resolve issues at the interfaces between major subsystems after the complete system is integrated for the first time.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "The primary purpose of SIT is to identify and resolve issues at the interfaces between major subsystems."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TEST-PLAN-001-002",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "List the six phases of the Defect Management Lifecycle.",
+    "ground_truth_answer": "The six phases of the Defect Management Lifecycle are: Identification, Logging, Triage, Resolution, Verification, and Closure.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "1. Identification... 2. Logging... 3. Triage... 4. Resolution... 5. Verification... 6. Closure."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TEST-PLAN-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "The TEMP states that a Non-Conformance Report (NCR) must be raised for defects found in delivered products. According to the Quality Management Plan, what is the primary purpose of the Corrective and Preventive Action (CAPA) process that an NCR might trigger?",
+    "ground_truth_answer": "According to the Quality Management Plan (SS-QM-PLAN-001), the purpose of the Corrective and Preventive Action (CAPA) process is to investigate and eliminate the root causes of non-conformances and to prevent their recurrence.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "For defects that escape to a later lifecycle phase or are found in delivered products, a formal NCR must be raised in accordance with the SS-QM-PLAN-001."
+      },
+      {
+        "doc_id": "SS-QM-PLAN-001",
+        "source_quote": "The Corrective and Preventive Action (CAPA) process is the primary mechanism for systematic problem-solving and continual improvement. Its purpose is to investigate and eliminate the root causes of non-conformances and to prevent their recurrence."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TEST-PLAN-001-004",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "The TEMP defines the T&E framework within the engineering lifecycle. According to the Engineering Management Plan, what formal gate review must be completed immediately before the Test & Evaluation phase can begin?",
+    "ground_truth_answer": "According to the Engineering Management Plan (SS-ENG-PLAN-001), the Test Readiness Review (TRR) is the formal gate review that must be completed immediately before the Test & Evaluation phase can begin.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "T&E is an integral part of the engineering lifecycle defined in SS-ENG-PLAN-001. The formal T&E phase is preceded by the Test Readiness Review (TRR)..."
+      },
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "Gate Review: Test Readiness Review (TRR). TRR Objective: To verify that the system is ready for the commencement of formal Test and Evaluation."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TEST-PLAN-001-005",
+    "question_type": "SYNTHESIS",
+    "question_text": "Which two roles or departments must give their approval for a formal test procedure before it can be executed?",
+    "ground_truth_answer": "A formal test procedure must be approved by the responsible Test Engineer and the Quality department before it can be executed.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "All formal test procedures must be approved by the responsible Test Engineer and the Quality department prior to execution."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TEST-PLAN-001-006",
+    "question_type": "SYNTHESIS",
+    "question_text": "What is Factory Acceptance Testing (FAT), and what is the name for the type of document that contains the specific, step-by-step instructions for conducting it?",
+    "ground_truth_answer": "Factory Acceptance Testing (FAT) is a formal test campaign at Synthetic Systems' facilities to provide final verification of the system against all requirements before shipment. The documents containing the detailed instructions for conducting it are called Hardware Acceptance Test Procedures.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "Factory Acceptance Testing (FAT): A formal and comprehensive test campaign conducted at Synthetic Systems' facilities. The purpose of FAT is to provide a final verification of the system against the complete set of system requirements before it is shipped to a customer."
+      },
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "Hardware Acceptance Test Procedures: This term refers to the specific L3 documents (e.g., SS-HYD-TEST-001) that contain the detailed, step-by-step instructions for conducting the FAT on a specific hardware product."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TEST-PLAN-001-007",
+    "question_type": "SYNTHESIS",
+    "question_text": "If a defect resolution requires a change to a formal design baseline, what process must be followed and which corporate plan governs it?",
+    "ground_truth_answer": "If a defect resolution requires a change to a formal baseline, an Engineering Change Proposal (ECP) must be submitted to the Configuration Control Board (CCB). This process is governed by the SS-CM-PLAN-001 Configuration Management Plan.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "If the resolution for a defect requires a change to a formal baseline (e.g., a hardware design), an ECP must be submitted to the Configuration Control Board (CCB) as per the SS-CM-PLAN-001."
+      }
+    ]
+  },
+    {
+    "question_id": "SS-TEST-PLAN-001-008",
+    "question_type": "SYNTHESIS",
+    "question_text": "What is the document ID for the Environmental Stress Screening procedure and what level of testing does it fall under?",
+    "ground_truth_answer": "The document ID for the Environmental Stress Screening procedure is SS-TRI-TEST-001, and it falls under the category of Specialised Testing.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "Environmental Stress Screening (ESS): As detailed in SS-TRI-TEST-001, this involves subjecting hardware to thermal cycling and vibration to precipitate latent defects."
+      },
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "Depending on project requirements, specialised testing may be required."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TEST-PLAN-001-009",
+    "question_type": "SYNTHESIS",
+    "question_text": "During the Defect Management Lifecycle, what information must be included when logging a Defect Report (DR)?",
+    "ground_truth_answer": "When logging a Defect Report (DR), it must include a clear title, a detailed description of the issue, the specific steps required to reproduce it, the expected versus the actual results, and any relevant logs or screenshots.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-TEST-PLAN-001",
+        "source_quote": "The DR must include a clear title, a detailed description of the issue, steps to reproduce it, the expected vs. actual results, and any relevant logs or screenshots."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-TEST-PLAN-001-010",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the name of the specific software application used for the central Defect Tracking System at Synthetic Systems?",
+    "ground_truth_answer": "I am sorry, but the provided documents do not specify the name of the software application used for the central Defect Tracking System. The Test & Evaluation Master Plan only states that a central system is used for logging Defect Reports.",
+    "retrieval_path": []
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "question_id": "SS-VISITOR-PROC-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What type of identification must a visitor present upon arrival at a Synthetic Systems facility?",
+    "ground_truth_answer": "Upon arrival, all visitors are required to present a valid, government-issued photo identification, such as a driver's licence or passport, for verification against their pre-registration details.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-VISITOR-PROC-001",
+        "source_quote": "The visitor will be required to present a valid, government-issued photo identification (e.g., driver's licence, passport) for verification against the pre-registration details."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-VISITOR-PROC-001-002",
+    "question_type": "SYNTHESIS",
+    "question_text": "What are the key responsibilities of a Synthetic Systems employee who is hosting a visitor, from initiation to completion of the visit?",
+    "ground_truth_answer": "The host is responsible for the entire visitor lifecycle. This begins with pre-registering the visitor by submitting all required details, including their nationality and purpose of visit. Upon the visitor's arrival, the host must meet them at reception and then act as their designated escort, keeping them in direct line of sight at all times. Finally, the host must escort the visitor back to reception to ensure they are properly checked out.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-VISITOR-PROC-001",
+        "source_quote": "All visitors must be pre-registered by their Synthetic Systems Host prior to their arrival."
+      },
+      {
+        "doc_id": "SS-VISITOR-PROC-001",
+        "source_quote": "After the check-in process is complete, Reception will notify the Host, who must come to Reception to greet the visitor and begin their escort duties."
+      },
+      {
+        "doc_id": "SS-VISITOR-PROC-001",
+        "source_quote": "All visitors, without exception, must be accompanied by their designated Escort at all times while within Synthetic Systems facilities."
+      },
+      {
+        "doc_id": "SS-VISITOR-PROC-001",
+        "source_quote": "At the end of the visit, the Host must escort the visitor back to Reception. The visitor must return their Visitor Pass to Reception personnel and be signed out of the visitor log."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-VISITOR-PROC-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "According to SS-VISITOR-PROC-001, what core principle from the parent Defence Security Policy (SS-SEC-POL-001) justifies the requirement for additional scrutiny and pre-approval for Foreign National visitors?",
+    "ground_truth_answer": "The requirement for additional scrutiny for Foreign National visitors is justified by Principle 6 from SS-SEC-POL-001, which states: 'Personnel security measures will establish and maintain a trusted workforce.' The visitor procedure explicitly references this commitment as the reason for requiring advance approval from the Head of Operations for all such visits.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-VISITOR-PROC-001",
+        "source_quote": "This aligns with our commitment to Principle 6 of the Defence Security Policy, ensuring a trusted workforce and secure environment."
+      },
+      {
+        "doc_id": "SS-SEC-POL-001",
+        "source_quote": "Principle 6: Personnel security measures will establish and maintain a trusted workforce. We will implement rigorous pre-employment screening, ongoing vetting, and security awareness training to ensure our personnel are suitable to hold positions of trust and to access sensitive or classified information."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-VISITOR-PROC-001-004",
+    "question_type": "UNANSWERABLE",
+    "question_text": "What is the specific procedure for managing a visitor who arrives without being pre-registered?",
+    "ground_truth_answer": "The provided documents state that walk-in or unscheduled visitors are not permitted without approval from the Head of Operations, but they do not detail a specific procedure for how to manage such a visitor while that approval is sought. The procedure focuses on the requirements for pre-registered guests.",
+    "retrieval_path": []
+  }
+]

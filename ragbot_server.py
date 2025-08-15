@@ -4,7 +4,7 @@ import threading
 import uvicorn # For running FastAPI server programmatically
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from fastapi.middleware.cors import CORSMiddleware # Import CORS middleware
+from fastapi.middleware.cors import CORSMiddleware 
 from fastapi.responses import FileResponse
 
 # LangChain components
@@ -16,15 +16,16 @@ from langchain.prompts import PromptTemplate
 from langchain.docstore.document import Document as LangchainDocument 
 
 
-HTML_FILE_PATH = "lisabot.html"
+HTML_FILE_PATH = "ragbot_ui.html"
 
 # --- Configuration ---
+#To-do: Extract this out into the centralised configuration file. 
 VECTOR_STORE_PATH = "faiss_index_ollama" 
 OLLAMA_EMBEDDING_MODEL_NAME = "nomic-embed-text"
 OLLAMA_LLM_MODEL_NAME = "llama3:8b" 
 TOP_K_DOCUMENTS = 10
 
-
+#This prompt appears to work fairly well. We can do future iterations on it. But it's probably good enough for the project as is. 
 PROMPT_TEMPLATE_STR = """
 You are a helper bot for members of an engineering team.
 Use only the following pieces of context to answer the question at the end.
@@ -50,7 +51,7 @@ Question: {question}
 Helpful Answer:
 """
 
-# --- Global variables for RAG components ---
+# RAG Global variables. 
 embeddings_model = None
 vector_store = None
 llm = None
@@ -65,6 +66,7 @@ app = FastAPI(
 )
 
 # --- CORS Configuration ---
+#This could be a separate configuration file. 
 origins = [
     "http://localhost", 
     "http://localhost:8080", #serving HTML on a different port
@@ -100,7 +102,7 @@ class QueryResponse(BaseModel):
     source_documents: list[SourceDocumentModel] = Field(default_factory=list)
     error: str | None = Field(None, example="RAG pipeline not initialized.")
 
-# --- RAG Initialization Logic ---
+
 def initialize_rag_pipeline():
     global embeddings_model, vector_store, llm, qa_chain, rag_initialized_successfully
     print("Attempting to initialize RAG pipeline...")
@@ -167,7 +169,6 @@ async def startup_event_handler():
 
 @app.get("/", tags=["Chat Interface"], response_class=FileResponse)
 async def get_chat_interface():
-    """Serves the LISA BOT HTML chat interface."""
     html_file = os.path.join(os.path.dirname(__file__), HTML_FILE_PATH)
     if not os.path.exists(html_file):
         print(f"ERROR: HTML file not found at {html_file}")
@@ -216,7 +217,7 @@ async def process_query_endpoint(request: QueryRequest):
         print(f"Error processing query with RAG chain: {e}")
         raise HTTPException(status_code=500, detail=f"Error processing query: {str(e)}")
 
-# --- Server Control Logic ---
+
 server_instance = None
 
 def run_fastapi_server():

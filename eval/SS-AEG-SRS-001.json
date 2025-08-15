@@ -1,0 +1,65 @@
+[
+  {
+    "question_id": "SS-AEG-SRS-001-001",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the required response time for the Aegis-Link user interface for critical interactions?",
+    "ground_truth_answer": "The user interface for the Aegis-Link software is required to have a response time of less than 500ms for all critical operator interactions.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-SRS-001",
+        "source_quote": "The user interface shall have a response time of less than 500ms for all critical operator interactions (e.g., button clicks, menu selections)."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-SRS-001-002",
+    "question_type": "LIST_EXTRACTION",
+    "question_text": "What are the two user roles that must be provided in the Aegis-Link software's role-based access control system?",
+    "ground_truth_answer": "The Aegis-Link software must provide at least two user roles: 'Operator' and 'Administrator'.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-SRS-001",
+        "source_quote": "The software shall provide a role-based access control (RBAC) system with at least two roles: 'Operator' and 'Administrator'."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-SRS-001-003",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "The Aegis-Link SRS mentions a future feature roadmap. Which parent document outlines the strategic company goal that is a primary driver for this roadmap?",
+    "ground_truth_answer": "The primary driver for the Aegis-Link feature roadmap is Goal 3 from the Corporate Plan (SS-CORP-PLAN-001), which is 'Expanding Our Software Capability' by growing the software engineering team by 30%.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-SRS-001",
+        "source_quote": "The future development of Aegis-Link is a key corporate priority, driven by the strategic goal to expand our software capabilities as outlined in SS-CORP-PLAN-001: Corporate Plan 2025-2028."
+      },
+      {
+        "doc_id": "SS-CORP-PLAN-001",
+        "source_quote": "Goal 3: Expanding Our Software Capability\nWe will grow our software engineering team by 30% to accelerate the development and support of our Aegis-Link product line."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-SRS-001-004",
+    "question_type": "CHAINED_RETRIEVAL",
+    "question_text": "What is the parent document that defines the engineering lifecycle that all Aegis-Link software development must follow?",
+    "ground_truth_answer": "All software development activities for Aegis-Link must follow the engineering lifecycle defined in SS-ENG-PLAN-001: Engineering Management Plan.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-AEG-SRS-001",
+        "source_quote": "All software development activities shall be conducted in accordance with the lifecycle defined in SS-ENG-PLAN-001: Engineering Management Plan."
+      },
+      {
+        "doc_id": "SS-ENG-PLAN-001",
+        "source_quote": "All engineering activities at Synthetic Systems shall follow a structured lifecycle model to ensure a systematic progression from concept to disposal."
+      }
+    ]
+  },
+  {
+    "question_id": "SS-AEG-SRS-001-005",
+    "question_type": "UNANSWERABLE",
+    "question_text": "Which specific programming language must be used to develop the Aegis-Link software?",
+    "ground_truth_answer": "I am sorry, but the provided Software Requirements Specification (SS-AEG-SRS-001) does not specify a required programming language. It only mandates that the source code be commented in accordance with the company coding standard.",
+    "retrieval_path": []
+  }
+]
