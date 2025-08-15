@@ -4,11 +4,8 @@ import os
 import time
 
 # --- Configuration ---
-# The results file from the test script.
 RESULTS_FILE = "rag_test_results.json"
-# The URL for the raw Ollama API endpoint.
 OLLAMA_API_URL = "http://localhost:11434/api/generate"
-# The model to use for evaluation.
 EVALUATOR_LLM_MODEL = "llama3:8b"
 
 EVALUATION_PROMPT_TEMPLATE = """
@@ -61,7 +58,7 @@ Provide your evaluation *only* in the following JSON format. Do not include any 
 """
 
 def check_ollama_readiness(url, retries=3, delay=3):
-    """Checks if the raw Ollama server is ready."""
+    #Make sure the Ollama server endpoint is up and running; that's our LLM as a judge interface. 
     print(f"Checking if raw Ollama server is ready at {url}...")
     server_root_url = url.replace("/api/generate", "/")
     for i in range(retries):
@@ -76,10 +73,7 @@ def check_ollama_readiness(url, retries=3, delay=3):
     return False
 
 def calculate_retrieval_recall(ground_truth_path, retrieved_contexts):
-    """
-    Calculates the recall for retrieved documents based on UNIQUE documents.
-    This version is robust to extra descriptive text in retrieved filenames.
-    """
+    #Quantitative assessment on how many retrieved documents match those required? 
     if not ground_truth_path:
         return 1.0
 
@@ -99,7 +93,7 @@ def calculate_retrieval_recall(ground_truth_path, retrieved_contexts):
 
 
 def evaluate_with_llm(question, ground_truth_answer, generated_answer, retrieved_contexts, ground_truth_path):
-    """Uses a raw LLM to evaluate the generated answer against multiple metrics."""
+    #LLM as a judge to evaluate qualitative metrics. 
     context_str = json.dumps(retrieved_contexts, indent=2)
     quotes_str = json.dumps(ground_truth_path, indent=2)
 
@@ -127,7 +121,6 @@ def evaluate_with_llm(question, ground_truth_answer, generated_answer, retrieved
         return None
 
 def run_metrics_evaluation():
-    """Loads results, uses an LLM to evaluate them, and provides a categorized summary."""
     if not os.path.exists(RESULTS_FILE):
         print(f"[FATAL] Results file not found: '{RESULTS_FILE}'")
         return

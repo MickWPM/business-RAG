@@ -111,15 +111,9 @@ Prerequisite: Ensure the Ollama application is running in the background.
 
 You can interact with the system in two ways:
 
-## Console Mode
-For a direct, command-line interface:
-```
-python console_rag_ollama.py
-```
-
 ## Web Interface
 To use the web-based UI, start the server:
 ```
-python lisabot_server.py
+python ragbot_server.py
 ```
 Then, open your web browser and navigate to http://127.0.0.1:8000.

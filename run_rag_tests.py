@@ -9,22 +9,12 @@ import logging
 # Set up basic logging to see the progress and any potential issues.
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# The URL of your local lisabot server's API endpoint.
-LISABOT_API_URL = "http://localhost:8000/query"
-# The output file to save the full evaluation results.
+
+RAGBOT_API_URL = "http://localhost:8000/query"
 RESULTS_FILE = "rag_test_results.json"
 
+#Eval Document Approach updated to support multiple JSON eval files to be collated into a single test plan. 
 def load_master_test_plan(folder_path):
-    """
-    Loads all .json files from a specified folder and combines them into a single list.
-
-    Args:
-        folder_path (str): The path to the folder containing evaluation JSON files.
-
-    Returns:
-        list: A consolidated list of all test cases from all JSON files.
-              Returns an empty list if the folder doesn't exist or contains no JSON files.
-    """
     if not os.path.isdir(folder_path):
         logging.error(f"Evaluation folder not found at: {folder_path}")
         return []
@@ -51,16 +41,13 @@ def load_master_test_plan(folder_path):
     return master_suite
 
 def check_server_readiness(url, retries=5, delay=3):
-    """
-    Checks if the LISABot server is ready to accept connections.
-    """
-    logging.info(f"Checking if LISABot server is ready at {url}...")
+    logging.info(f"Checking if RAG Bot server is ready at {url}...")
     server_root_url = url.replace("/query", "/")
     for i in range(retries):
         try:
             response = requests.get(server_root_url, timeout=2)
             if response.status_code == 200:
-                logging.info("LISABot Server is up.")
+                logging.info("RAG Bot Server is up.")
                 return True
         except requests.exceptions.ConnectionError:
             logging.warning(f"Connection attempt {i+1} failed. Retrying in {delay} seconds...")
@@ -68,23 +55,24 @@ def check_server_readiness(url, retries=5, delay=3):
     return False
 
 def run_evaluation_test(eval_folder='eval'):
-    """
-    Loads a master test plan from a folder, sends questions to the LISABot API,
-    and saves the comprehensive results to a JSON file.
-    """
+    #Evaluation consists of the following steps:
+        #1. Collate all test cases into a single master test plan
+        #2. Send the questions to the Ragbot API
+        #3. Save all results including sources and original ground truth to test_results.json file
+
     master_test_plan = load_master_test_plan(eval_folder)
     if not master_test_plan:
         logging.fatal(f"No test cases loaded from '{eval_folder}'. Aborting.")
         return
 
-    if not check_server_readiness(LISABOT_API_URL):
-        logging.fatal("\nLISABot Server did not become ready. Aborting tests.")
-        logging.fatal("Please ensure 'lisabot_server.py' is running.")
+    if not check_server_readiness(RAGBOT_API_URL):
+        logging.fatal("\RAG Bot Server did not become ready. Aborting tests.")
+        logging.fatal("Please ensure 'ragbot_server.py' is running.")
         return
 
     test_results = []
     total_questions = len(master_test_plan)
-    logging.info(f"\n--- Starting LISABot Evaluation Test ---")
+    logging.info(f"\n--- Starting RAG Bot Evaluation Test ---")
     logging.info(f"Consolidated {total_questions} questions from '{eval_folder}'")
 
     for i, item in enumerate(master_test_plan):
@@ -99,7 +87,7 @@ def run_evaluation_test(eval_folder='eval'):
         payload = {"query": question_text}
 
         try:
-            response = requests.post(LISABOT_API_URL, json=payload, timeout=60)
+            response = requests.post(RAGBOT_API_URL, json=payload, timeout=60)
             response.raise_for_status()
             response_data = response.json()
 
@@ -132,24 +120,18 @@ def run_evaluation_test(eval_folder='eval'):
     logging.info(f"\n--- Evaluation Test Complete ---")
     logging.info(f"Comprehensive results saved to '{RESULTS_FILE}'")
 
-def main():
-    """
-    Main function to parse arguments and run the evaluation.
-    """
-    parser = argparse.ArgumentParser(description="Run a RAG evaluation suite against a LISABot server.")
+def run_from_command_line():
+    parser = argparse.ArgumentParser(description="Run a RAG evaluation suite against a RAG Bot server.")
     parser.add_argument(
         "--eval_folder",
         type=str,
-        default="eval",  # Default to a folder named 'eval' in the current directory
+        default="eval", 
         help="Path to the folder containing the evaluation .json files. Defaults to './eval'."
     )
     args = parser.parse_args()
     
     run_evaluation_test(args.eval_folder)
 
+#Added ability to run from command line with eval folder parameter. Most of the time this is not used but allows for future alternative evaluation approaches. 
 if __name__ == "__main__":
-    # To run, use the command line:
-    # python lisa_test.py --eval_folder /path/to/your/eval_files
-    # Or if your folder is named 'eval' in the same directory:
-    # python lisa_test.py
-    main()
+    run_from_command_line()

@@ -1,45 +1,35 @@
-# create_embeddings_ollama.py
 import os
 import shutil
 from langchain_community.document_loaders import DirectoryLoader, TextLoader, PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import OllamaEmbeddings # Changed for Ollama
+from langchain_community.embeddings import OllamaEmbeddings 
 from langchain_community.vectorstores import FAISS
 
 # --- Configuration ---
-DOCUMENTS_PATH = "documents"  # Directory to store your text and PDF files
-# Specify the Ollama model to use for embeddings.
-# Make sure this model is pulled in Ollama (e.g., "ollama pull nomic-embed-text")
+DOCUMENTS_PATH = "documents"  # Directory All source files will be read for
+
+#To-do: look at extracting some of the blow into a centralised config file for cross-script sharing.
 OLLAMA_EMBEDDING_MODEL_NAME = "nomic-embed-text"
-VECTOR_STORE_PATH = "faiss_index_ollama"  # Directory to save the FAISS index (using a new name)
-CHUNK_SIZE = 1000  # Size of text chunks for processing (can be larger with better models)
-CHUNK_OVERLAP = 150  # Overlap between chunks
+VECTOR_STORE_PATH = "faiss_index_ollama"  
+CHUNK_SIZE = 1000  
+CHUNK_OVERLAP = 150  
 
 def create_vector_store_ollama():
-    """
-    Loads documents (.txt and .pdf), splits them into chunks, creates embeddings
-    using an Ollama embedding model, and saves them to a FAISS vector store.
-    """
     print(f"Starting to create vector store using Ollama model: {OLLAMA_EMBEDDING_MODEL_NAME}...")
 
     if not any(f.endswith((".txt", ".pdf")) for f in os.listdir(DOCUMENTS_PATH)):
-        print(f"The '{DOCUMENTS_PATH}' directory does not contain any .txt or .pdf files.")
-        print(f"Please add your files to the '{DOCUMENTS_PATH}' directory and re-run the script.")
-        if not os.path.exists(os.path.join(DOCUMENTS_PATH, "sample_document.txt")):
-             sample_file_path = os.path.join(DOCUMENTS_PATH, "sample_document.txt")
-             with open(sample_file_path, "w", encoding="utf-8") as f:
-                f.write("Sample document for Ollama RAG.")
-             print(f"Added another sample document: {sample_file_path}.")
-        # return # Let's proceed with sample if no other files
+        print(f"ERROR: The '{DOCUMENTS_PATH}' directory does not contain any .txt or .pdf files.")
+        return
 
     if os.path.exists(VECTOR_STORE_PATH):
         print(f"Removing existing Ollama vector store at '{VECTOR_STORE_PATH}'...")
         shutil.rmtree(VECTOR_STORE_PATH)
         print("Existing Ollama vector store removed.")
 
-    # 1. Load documents
     all_documents = []
     print(f"Loading documents from '{DOCUMENTS_PATH}'...")
+    
+    #To-do:Look at extending to additional file types in future
     txt_loader = DirectoryLoader(
         DOCUMENTS_PATH, glob="**/*.txt", loader_cls=TextLoader,
         loader_kwargs={'encoding': 'utf-8'}, show_progress=True,
@@ -70,7 +60,7 @@ def create_vector_store_ollama():
         return
     print(f"Total documents loaded: {len(all_documents)}.")
 
-    # 2. Split documents into chunks
+
     print("Splitting documents into chunks...")
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=CHUNK_SIZE,
@@ -84,11 +74,9 @@ def create_vector_store_ollama():
         print("No text chunks were generated. Check documents and splitting parameters.")
         return
 
-    # 3. Initialize Ollama embeddings model
-    # This requires the Ollama service to be running and the specified model to be pulled.
+
     print(f"Initializing Ollama embedding model: {OLLAMA_EMBEDDING_MODEL_NAME}...")
     try:
-        # For OllamaEmbeddings, you specify the model name you've pulled with "ollama pull <model_name>"
         embeddings_model = OllamaEmbeddings(model=OLLAMA_EMBEDDING_MODEL_NAME)
         # Test the embedding model with a sample text
         _ = embeddings_model.embed_query("Test query to initialize and check Ollama embeddings.")
@@ -98,7 +86,7 @@ def create_vector_store_ollama():
         print(f"Ensure Ollama service is running and model '{OLLAMA_EMBEDDING_MODEL_NAME}' is pulled (e.g., 'ollama pull {OLLAMA_EMBEDDING_MODEL_NAME}').")
         return
 
-    # 4. Create FAISS vector store from documents and save it
+
     print("Creating FAISS vector store with Ollama embeddings... This might take a while.")
     try:
         vector_store = FAISS.from_documents(texts, embeddings_model)

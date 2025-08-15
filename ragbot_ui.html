@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LISA BOT Chat</title>
+    <title>Synthetic Systems RAG BOT Chat</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom scrollbar for webkit browsers */
@@ -51,7 +51,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 inline-block mr-2 align-text-bottom">
                     <path d="M14.25 2.25A4.496 4.496 0 0012 1.5a4.496 4.496 0 00-2.25.75M12 6V3.75M5.038 12.75C5.14 15.974 7.772 18.75 11.25 18.75h1.5c3.478 0 6.11-2.776 6.212-6M12 6V3.75m0 17.25V15M3 9.75l1.61.067a5.25 5.25 0 015.14 5.142V15.75M21 9.75l-1.61.067a5.25 5.25 0 00-5.14 5.142V15.75m-3.89 3.469l-1.21-.067a1.5 1.5 0 01-1.4-1.4V15.75m7.78 3.469l1.21-.067a1.5 1.5 0 001.4-1.4V15.75M12 6a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"></path>
                 </svg>
-                LISA BOT
+                RAG BOT
             </h1>
         </header>
 
@@ -59,20 +59,20 @@
         <div id="chat-messages" class="flex-grow p-6 space-y-4 overflow-y-auto">
             <!-- Messages will be appended here -->
             <div class="bot-message p-3 max-w-lg">
-                <p class="font-semibold">LISA BOT:</p>
-                <p>Hello! Ask me anything about the LISA project</p>
+                <p class="font-semibold">RAG BOT:</p>
+                <p>Hello! Ask me anything about the Synthetic Systems organisation</p>
             </div>
         </div>
 
         <!-- Loading Indicator -->
         <div id="loading-indicator" class="p-4 text-center text-gray-400 hidden">
-            <p>LISA BOT is thinking...</p>
+            <p>RAG BOT is thinking...</p>
         </div>
 
         <!-- Input Area -->
         <footer class="bg-gray-700 p-4 rounded-b-lg">
             <form id="chat-form" class="flex items-center space-x-3">
-                <input type="text" id="message-input" placeholder="Ask LISA BOT something..."
+                <input type="text" id="message-input" placeholder="Ask RAG BOT something..."
                        class="flex-grow p-3 border border-gray-600 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                        autocomplete="off">
                 <button type="submit"
@@ -125,7 +125,7 @@
 
             } catch (error) {
                 showLoading(false);
-                addMessageToChat('Failed to connect to LISA BOT. Please ensure the server is running.', 'bot-error');
+                addMessageToChat('Failed to connect to RAG BOT. Please ensure the server is running.', 'bot-error');
                 console.error('Network or other error:', error);
             }
         });
@@ -142,10 +142,10 @@
                 senderName.textContent = 'You:';
             } else if (sender === 'bot') {
                 messageDiv.classList.add('bot-message', 'mr-auto'); // Align bot messages to the left
-                senderName.textContent = 'LISA BOT:';
+                senderName.textContent = 'RAG BOT:';
             } else if (sender === 'bot-error') {
                 messageDiv.classList.add('bg-red-700', 'text-white', 'mr-auto');
-                senderName.textContent = 'LISA BOT Error:';
+                senderName.textContent = 'RAG BOT Error:';
             }
             
             messageDiv.appendChild(senderName);
