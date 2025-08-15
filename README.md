@@ -4,9 +4,13 @@ This repository contains the work for a project focused on developing a Retrieva
 The primary goal is to leverage Large Language Models (LLMs) to unlock significant business value by making internal information more accessible and ensuring the retention of corporate knowledge. A key focus of this project is the use of locally hosted, open-source models to guarantee data security and protect intellectual property.
 
 # Current Status
-- Preliminary Naive RAG Pipeline Implemented
 
-- Synthetic Dataset Generation Underway
+- Synthetic Dataset Generation Complete
+- Preliminary Naive RAG Pipeline Functional
+- 131 test cases developed
+- Test and evaluation scripts complete with full test data included in the repo.
+- Evaluation dashboard implemented through Gemini AI to clearly see evaluation results. 
+
 
 # The Problem
 In many organizations, efficiently accessing specific information spread across numerous documents is a persistent challenge. This project targets two primary pain points:
