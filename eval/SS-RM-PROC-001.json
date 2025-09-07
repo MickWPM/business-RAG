@@ -81,7 +81,7 @@
     "question_text": "What is the process for appealing a risk acceptance decision made by a Project Manager?",
     "ground_truth_answer": "The provided documents do not define a specific process for appealing a risk acceptance decision. The Risk Management Process outlines the acceptance authorities for different risk levels but does not describe a formal appeals mechanism.",
     "retrieval_path": []
-  }
+  },
   {
     "question_id": "SS-RM-PROC-001-013",
     "question_type": "SIMPLE_RETRIEVAL",
