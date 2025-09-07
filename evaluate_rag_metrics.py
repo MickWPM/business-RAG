@@ -21,11 +21,11 @@ Evaluate on four metrics using a strict 1-5 scale:
     - 5: The answer is 100% supported by the context and contains no extra information.
     - 3: The answer is mostly supported by the context but makes a minor claim not found in the context.
     - 1: The answer contains significant information not found in the context (hallucination).
-3.  **Correctness**: How factually accurate is the `Generated Answer` when compared to the `Ground Truth Answer`?
+3.  **Correctness**: How factually accurate is the `Generated Answer` when compared to the `Ground Truth Answer`? This is the most critical aspect; if the answer does not meet the ground truth answer it should be penalised very harshly. The wording does not need to match; the information is the most important aspect. If the information is not there, do not give points for trying. 
     - 5: The generated answer is a perfect match or a perfect superset of the ground truth.
     - 4: The generated answer is mostly correct but misses a minor detail from the ground truth.
-    - 3: The generated answer has some correct information but also contains a noticeable factual error.
-    - 1: The generated answer is completely factually incorrect.
+    - 3: The generated answer has some correct information but also contains a noticeable factual error. This answer is more lucky guess than informed correctness but has some actionable information.
+    - 1: The generated answer is completely factually incorrect. This includes not providing an answer or just completely making one up. Inventing information should be penalised harshly.
 4.  **Answer Relevance**: How well does the `Generated Answer` directly address the user's `User Question`?
     - 5: The answer is perfectly on-topic and concise.
     - 3: The answer is on-topic but contains some unnecessary, un-asked for information.

@@ -20,7 +20,7 @@ HTML_FILE_PATH = "ragbot_ui.html"
 
 # --- Configuration ---
 #To-do: Extract this out into the centralised configuration file. 
-VECTOR_STORE_PATH = "faiss_index_ollama_md" 
+VECTOR_STORE_PATH = "faiss_index_ollama_pdf" 
 OLLAMA_EMBEDDING_MODEL_NAME = "nomic-embed-text"
 OLLAMA_LLM_MODEL_NAME = "llama3:8b" 
 TOP_K_DOCUMENTS = 10
@@ -144,6 +144,7 @@ def initialize_rag_pipeline():
             search_type="similarity",
             search_kwargs={'k': TOP_K_DOCUMENTS}
         )
+        
         qa_chain = RetrievalQA.from_chain_type(
             llm=llm,
             chain_type="stuff",
