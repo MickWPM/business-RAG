@@ -1,6 +1,6 @@
 import os
 import shutil
-from langchain_community.document_loaders import DirectoryLoader, TextLoader, PyPDFLoader
+from langchain_community.document_loaders import DirectoryLoader, TextLoader, PyPDFLoader, UnstructuredMarkdownLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import OllamaEmbeddings 
 from langchain_community.vectorstores import FAISS
@@ -10,15 +10,15 @@ DOCUMENTS_PATH = "documents"  # Directory All source files will be read for
 
 #To-do: look at extracting some of the blow into a centralised config file for cross-script sharing.
 OLLAMA_EMBEDDING_MODEL_NAME = "nomic-embed-text"
-VECTOR_STORE_PATH = "faiss_index_ollama"  
+VECTOR_STORE_PATH = "faiss_index_ollama_md"  
 CHUNK_SIZE = 1000  
 CHUNK_OVERLAP = 150  
 
 def create_vector_store_ollama():
     print(f"Starting to create vector store using Ollama model: {OLLAMA_EMBEDDING_MODEL_NAME}...")
 
-    if not any(f.endswith((".txt", ".pdf")) for f in os.listdir(DOCUMENTS_PATH)):
-        print(f"ERROR: The '{DOCUMENTS_PATH}' directory does not contain any .txt or .pdf files.")
+    if not any(f.endswith((".txt", ".pdf", ".md")) for f in os.listdir(DOCUMENTS_PATH)):
+        print(f"ERROR: The '{DOCUMENTS_PATH}' directory does not contain any .txt, .pdf or .md files.")
         return
 
     if os.path.exists(VECTOR_STORE_PATH):
@@ -30,33 +30,45 @@ def create_vector_store_ollama():
     print(f"Loading documents from '{DOCUMENTS_PATH}'...")
     
     #To-do:Look at extending to additional file types in future
-    txt_loader = DirectoryLoader(
-        DOCUMENTS_PATH, glob="**/*.txt", loader_cls=TextLoader,
-        loader_kwargs={'encoding': 'utf-8'}, show_progress=True,
-        use_multithreading=True, silent_errors=True
-    )
-    pdf_loader = DirectoryLoader(
-        DOCUMENTS_PATH, glob="**/*.pdf", loader_cls=PyPDFLoader,
+    #txt_loader = DirectoryLoader(
+    #    DOCUMENTS_PATH, glob="**/*.txt", loader_cls=TextLoader,
+    #    loader_kwargs={'encoding': 'utf-8'}, show_progress=True,
+    #    use_multithreading=True, silent_errors=True
+    #)
+    #pdf_loader = DirectoryLoader(
+    #    DOCUMENTS_PATH, glob="**/*.pdf", loader_cls=PyPDFLoader,
+    #    show_progress=True, use_multithreading=True, silent_errors=True
+    #)
+
+    md_loader = DirectoryLoader(
+        DOCUMENTS_PATH, glob="**/*.md", loader_cls=UnstructuredMarkdownLoader,
         show_progress=True, use_multithreading=True, silent_errors=True
     )
 
-    try:
-        txt_docs = txt_loader.load()
-        if txt_docs: all_documents.extend(txt_docs)
-        print(f"Loaded {len(txt_docs)} .txt documents.")
-    except Exception as e:
-        print(f"Error loading .txt documents: {e}")
+    #try:
+    #    txt_docs = txt_loader.load()
+    #    if txt_docs: all_documents.extend(txt_docs)
+    #    print(f"Loaded {len(txt_docs)} .txt documents.")
+    #except Exception as e:
+    #    print(f"Error loading .txt documents: {e}")
+
+    #try:
+    #    pdf_docs = pdf_loader.load()
+    #    if pdf_docs: all_documents.extend(pdf_docs)
+    #    print(f"Loaded {len(pdf_docs)} .pdf documents.")
+    #except Exception as e:
+    #    print(f"Error loading .pdf documents: {e}")
 
     try:
-        pdf_docs = pdf_loader.load()
-        if pdf_docs: all_documents.extend(pdf_docs)
-        print(f"Loaded {len(pdf_docs)} .pdf documents.")
+        md_docs = md_loader.load()
+        if md_docs: all_documents.extend(md_docs)
+        print(f"Loaded {len(md_docs)} .md documents.")
     except Exception as e:
         print(f"Error loading .pdf documents: {e}")
 
 
     if not all_documents:
-        print(f"No documents (.txt or .pdf) were successfully loaded from '{DOCUMENTS_PATH}'.")
+        print(f"No documents (.txt, .pdf or .md) were successfully loaded from '{DOCUMENTS_PATH}'.")
         return
     print(f"Total documents loaded: {len(all_documents)}.")
 
