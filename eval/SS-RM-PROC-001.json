@@ -82,4 +82,16 @@
     "ground_truth_answer": "The provided documents do not define a specific process for appealing a risk acceptance decision. The Risk Management Process outlines the acceptance authorities for different risk levels but does not describe a formal appeals mechanism.",
     "retrieval_path": []
   }
+  {
+    "question_id": "SS-RM-PROC-001-013",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "I have a schedule risk that may result in 2 month delay. What is the consequence level for this risk?",
+    "ground_truth_answer": "Section 5.2 Consequence Levels states that a 1-3 month delay is classified as a Moderate consequence.",
+    "retrieval_path": [
+      {
+        "doc_id": "SS-RM-PROC-001",
+        "source_quote": "3 Moderate $50k - $250k 1-3 months delay Minor degradation; some objectives impacted Minor loss of sensitive data; localized policy breach"
+      }
+    ]
+  }
 ]

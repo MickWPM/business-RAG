@@ -161,8 +161,8 @@
   {
     "question_id": "SS-HR-HNDBK-001-008",
     "question_type": "LIST_EXTRACTION",
-    "question_text": "List three activities that are strictly prohibited on company IT resources.",
-    "ground_truth_answer": "Three activities strictly prohibited on company IT resources are: installing unauthorised software, using unauthorised external storage devices (like personal USB drives), and sharing your login credentials with any other person.",
+    "question_text": "List the activities that are strictly prohibited on company IT resources.",
+    "ground_truth_answer": "The activities strictly prohibited on company IT resources are: installing unauthorised software, using unauthorised external storage devices (like personal USB drives), sharing your login credentials with any other person, accessing or distributing offensive, illegal, or malicious content, attempting to bypass or disable security controls and using company systems for personal commercial gain.",
     "retrieval_path": [
       {
         "doc_id": "SS-HR-HNDBK-001",
@@ -175,6 +175,18 @@
       {
         "doc_id": "SS-HR-HNDBK-001",
         "source_quote": "Sharing your login credentials with any other person."
+      },
+      {
+          "doc_id": "SS-HR-HNDBK-001",
+          "source_quote": "Accessing or distributing offensive, illegal, or malicious content."
+      },
+      {
+          "doc_id": "SS-HR-HNDBK-001",
+          "source_quote": "Attempting to bypass or disable security controls."
+      },
+      {
+          "doc_id": "SS-HR-HNDBK-001",
+          "source_quote": "Using company systems for personal commercial gain."
       }
     ]
   },{
@@ -207,13 +219,6 @@
   },
   {
     "question_id": "SS-QM-PLAN-001-003",
-    "question_type": "UNANSWERABLE",
-    "question_text": "What is the target Mean Time Between Failures (MTBF) for the Hydra-C4 Comms Module?",
-    "ground_truth_answer": "The provided documents do not specify a target Mean Time Between Failures (MTBF) for the Hydra-C4 Comms Module or any other product.",
-    "retrieval_path": []
-  },
-  {
-    "question_id": "SS-QM-PLAN-001-004",
     "question_type": "SIMPLE_RETRIEVAL",
     "question_text": "What international standard is Synthetic Systems' Quality Management System committed to maintaining compliance with?",
     "ground_truth_answer": "Synthetic Systems is committed to maintaining compliance with the ISO 9001:2015 quality management standard.",
@@ -225,7 +230,7 @@
     ]
   },
   {
-    "question_id": "SS-QM-PLAN-001-005",
+    "question_id": "SS-QM-PLAN-001-004",
     "question_type": "SYNTHESIS",
     "question_text": "Describe the full process at Synthetic Systems, from the moment a product fails to meet a requirement to the final verification that the root cause has been fixed.",
     "ground_truth_answer": "When a product fails to meet a requirement, any employee can raise a Non-Conformance Report (NCR) to document the issue. The NCR is reviewed by the Head of Operations to determine its severity. If the issue is significant, it triggers the Corrective and Preventive Action (CAPA) process. A team then investigates to find the root cause, develops and implements an action plan to fix it, and finally verifies over a period of time that the implemented actions were effective in eliminating the root cause before the CAPA is formally closed.",

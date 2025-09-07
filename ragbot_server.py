@@ -131,7 +131,7 @@ def initialize_rag_pipeline():
         print(f"Initializing Ollama LLM: {OLLAMA_LLM_MODEL_NAME}...")
         llm = Ollama(
             model=OLLAMA_LLM_MODEL_NAME,
-            temperature=0.2,
+            temperature=0,
         )
         _ = llm.invoke("Test query for LLM init.")
         print("Ollama LLM initialized.")
@@ -175,10 +175,10 @@ async def get_chat_interface():
         raise HTTPException(status_code=404, detail=f"{HTML_FILE_PATH} not found. Ensure it's in the same directory as the server script.")
     return FileResponse(html_file)
 
-
-# --- API Endpoint ---
+#ENDPOINT HERE:
 @app.post("/query", response_model=QueryResponse, tags=["RAG Query"])
 async def process_query_endpoint(request: QueryRequest):
+    global do_once
     if not rag_initialized_successfully or qa_chain is None:
         print("ERROR: RAG pipeline not ready. Query cannot be processed.")
         raise HTTPException(
@@ -187,6 +187,7 @@ async def process_query_endpoint(request: QueryRequest):
         )
 
     print(f"Received API query: \"{request.query}\"")
+
     try:
         response = qa_chain.invoke({"query": request.query})
         answer = response.get("result", "Sorry, I couldn't formulate an answer based on the documents.").strip()

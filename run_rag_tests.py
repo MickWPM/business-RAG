@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 RAGBOT_API_URL = "http://localhost:8000/query"
 RESULTS_FILE = "rag_test_results.json"
 
-#Eval Document Approach updated to support multiple JSON eval files to be collated into a single test plan. 
+
 def load_master_test_plan(folder_path):
     if not os.path.isdir(folder_path):
         logging.error(f"Evaluation folder not found at: {folder_path}")

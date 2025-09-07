@@ -121,5 +121,83 @@
         "source_quote": "Voice Encryption: All VoIP traffic shall be secured using the Secure Real-time Transport Protocol (SRTP)."
       }
     ]
+  },
+  {
+    "question_id": "SS-HYD-SPEC-001-010",
+    "question_type": "SIMPLE_RETRIEVAL",
+    "question_text": "What is the target Mean Time Between Failures (MTBF) for the Hydra-C4 Comms Module?",
+    "ground_truth_answer": "The target Mean Time Between Failures (MTBF) for the Hydra-C4 Comms Module is no less than 15,000 operating hours.",
+    "ground_truth_retrieval_path": [
+        {
+            "doc_id": "SS-HYD-SPEC-001",
+            "source_quote": "The system shall have a demonstrated Mean Time Between Failure (MTBF) of no less than 15,000 operating hours."
+        }
+    ],
+    "generated_answer": "According to the provided context, the target Mean Time Between Failures (MTBF) for the Hydra-C4 Comms Module is at least 15,000 operating hours. This information can be found in Section 3.2.1 of the SS-HYD-SPEC-001 document.",
+    "retrieved_contexts": [
+        {
+            "source_file": "SS-HYD-SPEC-001 Hydra-C4 System Specification.pdf",
+            "page": 0,
+            "section": "N/A",
+            "content_preview": "environmental\n \ntolerances,\n \nand\n \nexternal\n \ninterfaces.\n \nAll\n \ndevelopment\n \nactivities\n \nfor\n \nthe\n \nsystem\n \nshall\n \nbe\n \nconducted\n \nin\n \naccordance\n \nwith\n \nthe\n \nengineering\n \nlifecycle\n \ndef..."
+        },
+        {
+            "source_file": "SS-AEG-MANUAL-001 Aegis-Link Operator User Manual.pdf",
+            "page": 2,
+            "section": "N/A",
+            "content_preview": "\"BIT  Failed:  See  Logs  for  Details\"  \nThe  Hydra-C4  Built-In  Test  has  detected  an  internal  hardware  fault.  \n1.  View  the  event  logs  for  a  specific  error  code.  <br>  2.  Power  cy..."
+        },
+        {
+            "source_file": "SS-HYD-SPEC-001 Hydra-C4 System Specification.pdf",
+            "page": 0,
+            "section": "N/A",
+            "content_preview": "Document  ID:  SS-HYD-SPEC-001  Document  Title:  Hydra-C4  System  Specification  Version:  1.1  Status:  Draft  Date:  13  August  2025  1.  Introduction  1.1  Purpose  This  document  establishes  ..."
+        },
+        {
+            "source_file": "SS-HYD-TEST-001 Hydra-C4 Hardware Acceptance Test Procedure.pdf",
+            "page": 0,
+            "section": "N/A",
+            "content_preview": "\u25cf  Performance  Verification:  Measures  key  performance  parameters  such  as  data  \nthroughput\n \nagainst\n \nthe\n \nspecified\n \nrequirements.\n All  test  results,  observations,  and  any  anomalies ..."
+        },
+        {
+            "source_file": "SS-HYD-TEST-001 Hydra-C4 Hardware Acceptance Test Procedure.pdf",
+            "page": 0,
+            "section": "N/A",
+            "content_preview": "Document  ID:  SS-HYD-TEST-001  Document  Title:  Hydra-C4  Hardware  Acceptance  Test  Procedure  Version:  1.0  Status:  Released  Date:  13  August  2025  1.  Introduction  1.1  Purpose  This  docu..."
+        },
+        {
+            "source_file": "SS-HYD-GUIDE-001 Hydra-C4 Shipboard Integration Guide.pdf",
+            "page": 2,
+            "section": "N/A",
+            "content_preview": "port\n \n(RJ45).\n \nThis\n \nport\n \nis\n \nfor\n \nconfiguration\n \nand\n \ndiagnostics\n \nonly\n \nand\n \nshould\n \nnot\n \nbe\n \nconnected\n \nto\n \nthe\n \nprimary\n \ntactical\n \nnetwork.\n 5.3  RF  Interfaces  Connect  the  ..."
+        },
+        {
+            "source_file": "SS-HYD-GUIDE-001 Hydra-C4 Shipboard Integration Guide.pdf",
+            "page": 2,
+            "section": "N/A",
+            "content_preview": "unobstructed\n \nclearance\n \nmust\n \nbe\n \nmaintained\n \nat\n \nboth\n \nthe\n \nfront\n \nand\n \nrear\n \nof\n \nthe\n \ninstalled\n \nunit.\n \u25cf  Obstructions:  Do  not  block  the  ventilation  grilles  on  the  front  or..."
+        },
+        {
+            "source_file": "SS-HYD-SPEC-001 Hydra-C4 System Specification.pdf",
+            "page": 2,
+            "section": "N/A",
+            "content_preview": "seconds.\n \u25cf  Continuous  BIT  (CBIT):  Shall  run  continuously  during  operation  to  monitor  \nsystem\n \nhealth\n \nwithout\n \ndisrupting\n \ntraffic.\n \u25cf  Initiated  BIT  (IBIT):  Shall  provide  a  non-..."
+        },
+        {
+            "source_file": "SS-AEG-MANUAL-001 Aegis-Link Operator User Manual.pdf",
+            "page": 1,
+            "section": "N/A",
+            "content_preview": "component.\n \u25cb  For  Hydra-C4:  This  view  shows  power  status,  internal  temperature,  current  \ndata\n \nthroughput,\n \nand\n \nthe\n \nresults\n \nof\n \nthe\n \nlast\n \nBIT.\n \u25cb  For  Trident-S:  This  view  s..."
+        },
+        {
+            "source_file": "SS-AEG-TEST-001 Aegis-Link Software Test & IV&V Plan.pdf",
+            "page": 1,
+            "section": "N/A",
+            "content_preview": "They\n \nwill\n \nindependently\n \ndevelop\n \nand\n \nexecute\n \na\n \nsubset\n \nof\n \ntests\n \nto\n \nverify\n \ncritical\n \nfunctionality\n \nand\n \nperformance\n \nrequirements.\n \nTheir\n \nfindings\n \nwill\n \nbe\n \ndelivered\n..."
+        }
+    ],
+    "evaluation_scores": {
+        "retrieval_recall": 1.0
+    }
   }
 ]

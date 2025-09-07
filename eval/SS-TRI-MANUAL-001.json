@@ -38,6 +38,10 @@
         "source_quote": "For all unresolved faults, the user shall submit a Non-Conformance Report (NCR) in accordance with the process defined in SS-QM-PLAN-001: Quality Management Plan."
       },
       {
+          "doc_id": "SS-TRI-MANUAL-001",
+          "source_quote": "Immediately power down the system. 2. Do not attempt to power on again. 3. Raise an urgent fault report."
+      },
+      {
         "doc_id": "SS-QM-PLAN-001",
         "source_quote": "The purpose of the Non-Conformance Reporting (NCR) process is to formally document, track, and resolve any instance where a product, process, or service fails to meet its specified requirements."
       }
